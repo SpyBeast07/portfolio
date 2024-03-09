@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="indigo-white.css">
 </head>
 <body>
-	<main> 
+	<main id="header"> 
 		<div class="intro">Hello, I'm Kushagra!</div>
 		<div class="tagline">Developer | Code Fanatic | Linux User</div>
 		<!-- Find your icons from here - https://fontawesome.com/icons?d=gallery&s=brands -->
@@ -47,7 +47,47 @@
       </a>
     </div>
 	</main>
+
   <main>
+    <header>
+      <div class="container">
+        <style>
+          container {
+            height: 40px;
+            width: 50px;
+          }
+          .navbar {
+            background-color: #0e1964;
+            border-radius: 80px;
+            height: 60px;
+            /* margin: 0px 50px 0px 0px; */
+          }
+          .navbar li a {
+            color: white;
+            text-decoration: none;
+            padding: 0px 50px 0px 0p;
+          }
+          .navbar ul {
+            display: flex;
+            margin-top: 10px;
+          }
+        </style>
+        <nav class="navbar">
+          <ul>
+            <li>
+              <a href="#header">Home</a>
+            </li>
+            <li>
+              <a href="#about">About</a>
+            </li>
+            <li>
+              <a href="#project">Projects</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
     <div id="about">
         <div class="container">
             <div class="row">
@@ -57,14 +97,14 @@
                 <div class="about-col-2">
                     <h1 class="sub-title">About Me</h1>
                     <p>I am Kushagra Gupta, a college student currently in I year.
-			I am really interested in coding. I have a few experience
-			on web development and other academic projects but I
-			am learning languages and getting better at it. I am de-
-			veloping the problem solving skills by doing problems
-			on coding platforms. So basically coding is my hobby
-			too but I do many different things in my lesiure time. I
-			am currently learning web development and some extra
-			technical and soft skills.
+                      I am really interested in coding. I have a few experience
+                      on web development and other academic projects but I
+                      am learning languages and getting better at it. I am de-
+                      veloping the problem solving skills by doing problems
+                      on coding platforms. So basically coding is my hobby
+                      too but I do many different things in my lesiure time. I
+                      am currently learning web development and some extra
+                      technical and soft skills.
                     </p>
                     <div class="tab-title">
                         <p class="tab-links active-link" onclick="opentab('skills')" >Skills</p>
