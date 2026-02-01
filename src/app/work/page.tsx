@@ -15,8 +15,16 @@ export default function WorkPage() {
                         <Navbar mode="floating" />
                     </div>
                     <div className="mt-24">
-                        <h1 className="font-playfair text-5xl font-bold text-white mb-6">All Projects</h1>
-                        <p className="text-neutral-400 max-w-2xl text-lg">
+                        <h1
+                            className="font-playfair text-5xl font-bold mb-6"
+                            style={{ color: "var(--foreground)" }}
+                        >
+                            All Projects
+                        </h1>
+                        <p
+                            className="max-w-2xl text-lg"
+                            style={{ color: "color-mix(in oklab, var(--foreground) 60%, transparent)" }}
+                        >
                             A collection of my work, ranging from open-source tools to commercial applications.
                         </p>
                     </div>

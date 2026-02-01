@@ -15,8 +15,16 @@ export default function BlogsPage() {
                         <Navbar mode="floating" />
                     </div>
                     <div className="mt-24">
-                        <h1 className="font-playfair text-5xl font-bold text-white mb-6">Writing</h1>
-                        <p className="text-neutral-400 max-w-2xl text-lg">
+                        <h1
+                            className="font-playfair text-5xl font-bold mb-6"
+                            style={{ color: "var(--foreground)" }}
+                        >
+                            Writing
+                        </h1>
+                        <p
+                            className="max-w-2xl text-lg"
+                            style={{ color: "color-mix(in oklab, var(--foreground) 60%, transparent)" }}
+                        >
                             Thoughts on software engineering, design systems, and the future of AI.
                         </p>
                     </div>
@@ -58,8 +66,18 @@ export default function BlogsPage() {
                 </div>
 
                 {/* Coming Soon Placeholder */}
-                <div className="py-12 text-center border border-white/5 bg-white/5 rounded-lg border-dashed">
-                    <p className="text-neutral-400 font-playfair italic text-lg">
+                <div
+                    className="py-12 text-center rounded-lg border-dashed"
+                    style={{
+                        borderColor: "color-mix(in oklab, var(--foreground) 10%, transparent)",
+                        backgroundColor: "color-mix(in oklab, var(--background) 85%, transparent)",
+                        borderWidth: "1px",
+                    }}
+                >
+                    <p
+                        className="font-playfair italic text-lg"
+                        style={{ color: "color-mix(in oklab, var(--foreground) 50%, transparent)" }}
+                    >
                         Thoughtful essays coming soon...
                     </p>
                 </div>

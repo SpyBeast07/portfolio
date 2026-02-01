@@ -1,11 +1,28 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 export const BlogItem = ({ title, excerpt, date, slug, readTime }: { title: string, excerpt: string, date: string, slug: string, readTime: string }) => (
-    <Link href={slug} className="group flex flex-col md:flex-row gap-6 mb-12 items-start cursor-pointer hover:bg-white/5 p-4 rounded-xl transition-colors -mx-4">
+    <Link
+        href={slug}
+        className="group flex flex-col md:flex-row gap-6 mb-12 items-start cursor-pointer p-4 rounded-xl transition-colors -mx-4"
+        onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = "color-mix(in oklab, var(--foreground) 5%, transparent)";
+        }}
+        onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = "transparent";
+        }}
+    >
         {/* Blog Image */}
-        <div className="w-full md:w-48 h-32 relative flex-shrink-0 overflow-hidden rounded-lg bg-neutral-800 border border-white/10">
+        <div
+            className="w-full md:w-48 h-32 relative flex-shrink-0 overflow-hidden rounded-lg"
+            style={{
+                backgroundColor: "color-mix(in oklab, var(--foreground) 5%, transparent)",
+                border: "1px solid color-mix(in oklab, var(--foreground) 10%, transparent)",
+            }}
+        >
             <Image
                 src="https://placehold.co/600x400/222/FFF?text=Blog"
                 alt="Blog"
@@ -16,22 +33,34 @@ export const BlogItem = ({ title, excerpt, date, slug, readTime }: { title: stri
 
         {/* Content */}
         <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-3 text-xs font-mono text-neutral-500 mb-2 uppercase tracking-wide">
+            <div
+                className="flex items-center gap-3 text-xs font-mono mb-2 uppercase tracking-wide"
+                style={{ color: "color-mix(in oklab, var(--foreground) 50%, transparent)" }}
+            >
                 <span>{date}</span>
                 <span>•</span>
                 <span>{readTime}</span>
             </div>
 
-            <h3 className="text-xl font-bold text-white group-hover:text-yellow-500 transition-colors font-playfair mb-3 leading-tight">
+            <h3
+                className="text-xl font-bold transition-colors font-playfair mb-3 leading-tight"
+                style={{ color: "var(--foreground)" }}
+            >
                 {title}
             </h3>
 
-            <p className="text-neutral-400 text-sm leading-relaxed mb-4 line-clamp-3">
+            <p
+                className="text-sm leading-relaxed mb-4 line-clamp-3"
+                style={{ color: "color-mix(in oklab, var(--foreground) 70%, transparent)" }}
+            >
                 {excerpt}
             </p>
 
-            <div className="text-xs font-bold text-white uppercase tracking-widest flex items-center gap-2 group-hover:gap-3 transition-all">
-                Read Article <span className="text-yellow-500">→</span>
+            <div
+                className="text-xs font-bold uppercase tracking-widest flex items-center gap-2 group-hover:gap-3 transition-all"
+                style={{ color: "var(--foreground)" }}
+            >
+                Read Article <span className="text-yellow-600 dark:text-yellow-500">→</span>
             </div>
         </div>
     </Link>

@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Navbar from "@/components/Navbar";
 import { TimelineItem } from "@/components/TimelineItem";
@@ -15,8 +17,16 @@ export default function AboutPage() {
                         <Navbar mode="floating" />
                     </div>
                     <div className="mt-24">
-                        <h1 className="font-playfair text-5xl font-bold text-white mb-6">About Me</h1>
-                        <div className="text-neutral-400 leading-relaxed max-w-2xl text-lg font-outfit space-y-6">
+                        <h1
+                            className="font-playfair text-5xl font-bold mb-6"
+                            style={{ color: "var(--foreground)" }}
+                        >
+                            About Me
+                        </h1>
+                        <div
+                            className="leading-relaxed max-w-2xl text-lg font-outfit space-y-6"
+                            style={{ color: "color-mix(in oklab, var(--foreground) 60%, transparent)" }}
+                        >
                             <p>
                                 I'm a developer and AI enthusiast with a passion for building pixel-perfect,
                                 intuitive user interfaces. I thrive at the intersection of design and engineering,
@@ -36,7 +46,19 @@ export default function AboutPage() {
                 <div className="mb-16">
                     <a
                         href="/resume"
-                        className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-black font-medium text-sm hover:scale-105 transition-transform"
+                        className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-sm transition-transform"
+                        style={{
+                            color: "var(--background)",
+                            backgroundColor: "var(--foreground)",
+                        }}
+                        onMouseEnter={(e) => {
+                            e.currentTarget.style.opacity = "0.9";
+                            e.currentTarget.style.transform = "scale(1.05)";
+                        }}
+                        onMouseLeave={(e) => {
+                            e.currentTarget.style.opacity = "1";
+                            e.currentTarget.style.transform = "scale(1)";
+                        }}
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /><polyline points="10 9 9 9 8 9" /></svg>
                         View Resume
@@ -46,7 +68,12 @@ export default function AboutPage() {
                 <div className="space-y-4">
                     {/* Experience */}
                     <div className="mb-12">
-                        <h4 className="text-sm font-bold text-neutral-500 uppercase tracking-widest mb-6">Experience</h4>
+                        <h4
+                            className="text-sm font-bold uppercase tracking-widest mb-6"
+                            style={{ color: "color-mix(in oklab, var(--foreground) 50%, transparent)" }}
+                        >
+                            Experience
+                        </h4>
                         <TimelineItem
                             title="Frontend Developer Intern"
                             subtitle="TechCorp Inc."
@@ -65,7 +92,12 @@ export default function AboutPage() {
 
                     {/* Education */}
                     <div>
-                        <h4 className="text-sm font-bold text-neutral-500 uppercase tracking-widest mb-6">Education</h4>
+                        <h4
+                            className="text-sm font-bold uppercase tracking-widest mb-6"
+                            style={{ color: "color-mix(in oklab, var(--foreground) 50%, transparent)" }}
+                        >
+                            Education
+                        </h4>
                         <TimelineItem
                             title="Computer Science & Engineering"
                             subtitle="Bachelor of Technology"
