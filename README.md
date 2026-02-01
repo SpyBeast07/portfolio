@@ -3,7 +3,7 @@
 This is my personal portfolio website built with Next.js, Tailwind CSS, and Framer Motion.
 It showcases my work, experience, and thoughts on technology.
 
-**Project Link:** [https://github.com/SpyBeast07/portfolio](https://github.com/SpyBeast07/portfolio)
+**Project Link:** [https://portfolio-murex-seven-86.vercel.app](https://portfolio-murex-seven-86.vercel.app)
 
 ## Getting Started
 

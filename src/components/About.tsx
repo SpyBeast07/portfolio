@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function About() {
     return (
-        <section id="about" className="mb-24 scroll-mt-24">
+        <section id="about" className="mb-24 lg:mb-40 scroll-mt-24">
             {/* Heading */}
             <h2
                 className="font-playfair text-3xl font-bold mb-8"

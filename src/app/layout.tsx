@@ -3,6 +3,7 @@ import { Outfit, Playfair_Display, Dancing_Script, Great_Vibes, Sacramento } fro
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import ThemeBulb from "@/components/ThemeBulb";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -52,6 +53,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <SmoothScroll />
           {children}
           {/* Global Theme Switcher available on all pages */}
           <ThemeBulb />

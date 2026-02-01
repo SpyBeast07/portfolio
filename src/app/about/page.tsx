@@ -70,7 +70,7 @@ export default function AboutPage() {
                     <div className="mb-12">
                         <h4
                             className="text-sm font-bold uppercase tracking-widest mb-6"
-                            style={{ color: "color-mix(in oklab, var(--foreground) 50%, transparent)" }}
+                            style={{ color: "color-mix(in oklab, var(--foreground) 90%, transparent)" }}
                         >
                             Experience
                         </h4>
@@ -94,7 +94,7 @@ export default function AboutPage() {
                     <div>
                         <h4
                             className="text-sm font-bold uppercase tracking-widest mb-6"
-                            style={{ color: "color-mix(in oklab, var(--foreground) 50%, transparent)" }}
+                            style={{ color: "color-mix(in oklab, var(--foreground) 90%, transparent)" }}
                         >
                             Education
                         </h4>

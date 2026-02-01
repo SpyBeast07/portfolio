@@ -4,7 +4,7 @@ import { ProjectCard } from "./ProjectCard";
 
 export default function Work() {
     return (
-        <section id="work" className="mb-24 scroll-mt-24">
+        <section id="work" className="mb-24 lg:mb-40 scroll-mt-24">
             {/* Heading */}
             <h2
                 className="font-playfair text-3xl font-bold mb-8"

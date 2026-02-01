@@ -6,7 +6,7 @@ import { BlogItem } from "../components/BlogItem";
 
 export default function Blogs() {
     return (
-        <section id="blogs" className="mb-24 scroll-mt-24">
+        <section id="blogs" className="mb-24 lg:mb-40 scroll-mt-24">
             <h2
                 className="font-playfair text-3xl font-bold mb-10"
                 style={{ color: "var(--foreground)" }}
@@ -33,7 +33,7 @@ export default function Blogs() {
                     readTime="8 min read"
                     slug="#"
                 />  */}
-               
+
 
                 {/* Coming Soon Placeholder */}
                 <div
