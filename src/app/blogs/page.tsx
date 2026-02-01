@@ -23,7 +23,11 @@ export default function BlogsPage() {
                 </div>
 
                 <div className="space-y-4">
-                    <BlogItem
+                    {/* 
+                        TODO: Uncomment these BlogItem components when you have real blogs to show.
+                        You can add more items here following the same pattern.
+                    */}
+                    {/* <BlogItem
                         title="Building Scalable UI Systems"
                         excerpt="In modern frontend development, consistency is key. We start by exploring the atomic design methodology and how it applies to React component libraries. This article covers tokenization, theming, and component composition."
                         date="Mar 15, 2024"
@@ -50,7 +54,14 @@ export default function BlogsPage() {
                         date="Dec 05, 2023"
                         readTime="10 min read"
                         slug="#"
-                    />
+                    /> */}
+                </div>
+
+                {/* Coming Soon Placeholder */}
+                <div className="py-12 text-center border border-white/5 bg-white/5 rounded-lg border-dashed">
+                    <p className="text-neutral-400 font-playfair italic text-lg">
+                        Thoughtful essays coming soon...
+                    </p>
                 </div>
             </div>
         </div>

@@ -8,6 +8,11 @@ export default function Blogs() {
             <h2 className="font-playfair text-3xl font-bold mb-10 text-white">Latest Writing</h2>
 
             <div className="space-y-2">
+                {/* 
+                   TODO: Uncomment these BlogItem components when you have real blogs to show.
+                   You can add more items here following the same pattern.
+                */}
+                {/* 
                 <BlogItem
                     title="Building Scalable UI Systems"
                     excerpt="In modern frontend development, consistency is key. We start by exploring the atomic design methodology and how it applies to React component libraries. This article covers tokenization, theming, and component composition."
@@ -21,7 +26,15 @@ export default function Blogs() {
                     date="Feb 28, 2024"
                     readTime="8 min read"
                     slug="#"
-                />
+                /> 
+                */}
+
+                {/* Coming Soon Placeholder */}
+                <div className="py-12 text-center border border-white/5 bg-white/5 rounded-lg border-dashed">
+                    <p className="text-neutral-400 font-playfair italic text-lg">
+                        Thoughtful essays coming soon...
+                    </p>
+                </div>
             </div>
 
             <Link

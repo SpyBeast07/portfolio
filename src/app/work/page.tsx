@@ -27,25 +27,33 @@ export default function WorkPage() {
                         title="AI Code Assistant"
                         description="A VS Code extension that uses local LLMs to suggest code completions. 1k+ installs on marketplace."
                         tags={["Python", "TypeScript", "LlamaCP"]}
-                        link="#"
+                        image="https://placehold.co/600x400/1a1a1a/ffffff?text=AI+Code+Assistant"
+                        githubLink="https://github.com"
+                        demoLink="https://demo.com"
                     />
                     <ProjectCard
                         title="Portfolio V1"
                         description="The first iteration of my personal portfolio built with pure HTML/CSS and minimal JS."
                         tags={["HTML", "CSS", "Gulp"]}
-                        link="#"
+                        image="https://placehold.co/600x400/1a1a1a/ffffff?text=Portfolio+V1"
+                        githubLink="https://github.com"
+                        demoLink="https://demo.com"
                     />
                     <ProjectCard
                         title="E-Commerce Dashboard"
                         description="A comprehensive dashboard for managing products, orders, and analytics for an online store."
                         tags={["React", "Next.js", "Tremor"]}
-                        link="#"
+                        image="https://placehold.co/600x400/1a1a1a/ffffff?text=E-Commerce+Dashboard"
+                        githubLink="https://github.com"
+                        demoLink="https://demo.com"
                     />
                     <ProjectCard
                         title="Task Management App"
                         description="A collaborative task manager with real-time updates and team workspaces."
                         tags={["Vue.js", "Firebase", "Tailwind"]}
-                        link="#"
+                        image="https://placehold.co/600x400/1a1a1a/ffffff?text=Task+Manager"
+                        githubLink="https://github.com"
+                        demoLink="https://demo.com"
                     />
                 </div>
             </div>

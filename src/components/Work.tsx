@@ -26,7 +26,10 @@ export default function Work() {
                         <div key={i} className="flex flex-col gap-1">
                             {Array.from({ length: 7 }).map((_, j) => {
                                 // Random contribution level
-                                const level = Math.random() > 0.7 ? (Math.random() > 0.5 ? "bg-green-500" : "bg-green-900") : "bg-neutral-800";
+                                // Deterministic "random" contribution level to prevent hydration mismatch
+                                const pseudoRandom = ((i * 7 + j) * 1103515245 + 12345) % 2147483648;
+                                const normalized = pseudoRandom / 2147483648;
+                                const level = normalized > 0.7 ? (normalized > 0.85 ? "bg-green-500" : "bg-green-900") : "bg-neutral-800";
                                 return <div key={j} className={`w-2.5 h-2.5 rounded-sm ${level}`} />;
                             })}
                         </div>
@@ -40,13 +43,15 @@ export default function Work() {
                     title="AI Code Assistant"
                     description="A VS Code extension that uses local LLMs to suggest code completions. 1k+ installs on marketplace."
                     tags={["Python", "TypeScript", "LlamaCP"]}
-                    link="#"
+                    githubLink="https://github.com"
+                    demoLink="https://demo.com"
                 />
                 <ProjectCard
                     title="Portfolio V1"
                     description="The first iteration of my personal portfolio built with pure HTML/CSS and minimal JS."
                     tags={["HTML", "CSS", "Gulp"]}
-                    link="#"
+                    githubLink="https://github.com"
+                    demoLink="https://demo.com"
                 />
             </div>
 
