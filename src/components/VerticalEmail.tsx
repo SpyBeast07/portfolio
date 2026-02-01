@@ -1,0 +1,30 @@
+"use client";
+
+import React, { useState } from "react";
+
+export default function VerticalEmail() {
+    const [copied, setCopied] = useState(false);
+    const email = "kggupta.work@gmail.com"; // Replace with actual email if needed
+
+    const handleCopy = () => {
+        navigator.clipboard.writeText(email);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    };
+
+    return (
+        <div className="fixed left-8 bottom-0 z-20 flex flex-col items-center gap-6 after:h-24 after:min-h-[100px] after:w-[1px] after:bg-neutral-500 after:content-[''] dark:after:bg-neutral-500">
+            <button
+                onClick={handleCopy}
+                className="vertical-text relative font-mono text-sm tracking-widest text-neutral-400 hover:text-white hover:-translate-y-1 transition-all duration-300"
+                style={{ writingMode: "vertical-rl" }}
+            >
+                {copied ? (
+                    <span className="text-green-400 font-bold">Copied!!</span>
+                ) : (
+                    email
+                )}
+            </button>
+        </div>
+    );
+}
