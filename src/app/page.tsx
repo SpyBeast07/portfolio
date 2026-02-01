@@ -4,7 +4,6 @@ import React from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import VerticalEmail from "@/components/VerticalEmail";
-import ThemeBulb from "@/components/ThemeBulb";
 import Navbar from "@/components/Navbar";
 import About from "@/components/About";
 import Work from "@/components/Work";
@@ -44,7 +43,7 @@ export default function Home() {
       <div className="fixed inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_20%,var(--background)_90%)] z-0" />
 
       {/* Tools */}
-      <ThemeBulb />
+      {/* ThemeBulb is global in layout.tsx */}
       <VerticalEmail />
 
 

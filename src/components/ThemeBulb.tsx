@@ -1,21 +1,22 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
 
 export default function ThemeBulb() {
-    const [isDark, setIsDark] = useState(true);
+    const { theme, setTheme, resolvedTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
 
-    // Initialize theme on mount
-    useEffect(() => {
-        // Check local storage or system preference logic if needed.
-        // Default is dark as per requirements.
-        document.documentElement.classList.add("dark");
-    }, []);
+    // After mounting, we have access to the theme
+    useEffect(() => setMounted(true), []);
+
+    if (!mounted) {
+        return null; // or a placeholder to avoid hydration mismatch
+    }
+
+    const isDark = resolvedTheme === "dark";
 
     const toggleTheme = () => {
-        const newIsDark = !isDark;
-        setIsDark(newIsDark);
-
         // Animate the pull
         const rope = document.getElementById("bulb-rope");
         if (rope) {
@@ -29,11 +30,7 @@ export default function ThemeBulb() {
             });
         }
 
-        if (newIsDark) {
-            document.documentElement.classList.add("dark");
-        } else {
-            document.documentElement.classList.remove("dark");
-        }
+        setTheme(isDark ? "light" : "dark");
     };
 
     return (
