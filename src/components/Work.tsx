@@ -31,70 +31,7 @@ export default function Work() {
                 </p>
             </div>
 
-            {/* GitHub Contribution Card */}
-            <div
-                className="mb-12 rounded-lg p-4 overflow-hidden"
-                style={{
-                    backgroundColor:
-                        "color-mix(in oklab, var(--background) 85%, transparent)",
-                    border:
-                        "1px solid color-mix(in oklab, var(--foreground) 10%, transparent)",
-                }}
-            >
-                <div className="flex justify-between items-center mb-4">
-                    <h4
-                        className="text-sm font-bold"
-                        style={{
-                            color: "color-mix(in oklab, var(--foreground) 70%, transparent)",
-                        }}
-                    >
-                        GitHub Contributions
-                    </h4>
-                    <span
-                        className="text-xs"
-                        style={{
-                            color: "color-mix(in oklab, var(--foreground) 40%, transparent)",
-                        }}
-                    >
-                        Last Year
-                    </span>
-                </div>
 
-                {/* Contribution Graph */}
-                <div
-                    className="flex gap-1 overflow-x-auto pb-2 p-2 rounded-md"
-                    style={{
-                        backgroundColor:
-                            "color-mix(in oklab, var(--foreground) 4%, var(--background))",
-                        border:
-                            "1px solid color-mix(in oklab, var(--foreground) 8%, transparent)",
-                    }}
-                >
-                    {Array.from({ length: 53 }).map((_, i) => (
-                        <div key={i} className="flex flex-col gap-1">
-                            {Array.from({ length: 7 }).map((_, j) => {
-                                const pseudoRandom =
-                                    ((i * 7 + j) * 1103515245 + 12345) % 2147483648;
-                                const normalized = pseudoRandom / 2147483648;
-
-                                const bg =
-                                    normalized > 0.7
-                                        ? normalized > 0.85
-                                            ? "bg-green-500"
-                                            : "bg-green-700"
-                                        : "bg-neutral-500/30";
-
-                                return (
-                                    <div
-                                        key={j}
-                                        className={`w-2.5 h-2.5 rounded-sm ${bg}`}
-                                    />
-                                );
-                            })}
-                        </div>
-                    ))}
-                </div>
-            </div>
 
             {/* Projects */}
             <div className="grid grid-cols-1 gap-6">

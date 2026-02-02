@@ -8,7 +8,9 @@ export default function Footer() {
         >
             <p>
                 Coded in Visual Studio Code by yours truly. Built with Next.js and Tailwind CSS, deployed with Vercel.
-                All text is set in the <span className="font-medium" style={{ color: "color-mix(in oklab, var(--foreground) 70%, transparent)" }}>Outfit</span> (replacing Inter) typeface.
+                <br />
+                Interested in working together?
+                Feel free to reach out on LinkedIn or email.
             </p>
         </footer>
     );

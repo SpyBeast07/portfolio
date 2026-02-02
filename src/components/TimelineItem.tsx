@@ -2,7 +2,7 @@
 
 import React from "react";
 
-export const TimelineItem = ({ title, subtitle, date, description, tags }: { title: string, subtitle: string, date: string, description: string, tags?: string[] }) => (
+export const TimelineItem = ({ title, subtitle, date, description, tags, location, type, cgpa }: { title: string, subtitle: string, date: string, description: string, tags?: string[], location?: string, type?: string, cgpa?: string }) => (
     <div
         className="relative pl-8 pb-12 last:pb-0"
         style={{
@@ -24,9 +24,30 @@ export const TimelineItem = ({ title, subtitle, date, description, tags }: { tit
                 {date}
             </span>
         </div>
-        <div className="text-sm font-medium text-purple-400 mb-3">{subtitle}</div>
+        <div className="text-sm font-medium text-purple-400 mb-1">{subtitle}</div>
+
+        {/* Meta Info: Location, Type, CGPA */}
+        <div className="flex flex-wrap gap-4 mb-3 text-xs" style={{ color: "color-mix(in oklab, var(--foreground) 50%, transparent)" }}>
+            {location && (
+                <div className="flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
+                    {location}
+                </div>
+            )}
+            {type && (
+                <div className="flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2" /><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /></svg>
+                    {type}
+                </div>
+            )}
+            {cgpa && (
+                <div className="flex items-center gap-1 font-mono">
+                    <span className="font-bold">CGPA:</span> {cgpa}
+                </div>
+            )}
+        </div>
         <p
-            className="text-sm leading-relaxed mb-4 max-w-md"
+            className="text-sm leading-relaxed mb-4 max-w-xl"
             style={{ color: "color-mix(in oklab, var(--foreground) 60%, transparent)" }}
         >
             {description}

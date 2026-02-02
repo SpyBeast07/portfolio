@@ -38,8 +38,7 @@ export default function ThemeBulb() {
             {/* Rope */}
             <div
                 id="bulb-rope"
-                className="flex flex-col items-center cursor-pointer transition-transform origin-top hover:translate-y-1"
-                onClick={toggleTheme}
+                className="flex flex-col items-center pointer-events-none transition-transform origin-top hover:translate-y-1"
             >
                 {/* Rope Line */}
                 <div className="w-[1px] h-20 bg-neutral-700 dark:bg-neutral-500 relative">
@@ -52,8 +51,9 @@ export default function ThemeBulb() {
 
                 {/* Bulb */}
                 <div
+                    onClick={toggleTheme}
                     className={`
-                w-8 h-12 rounded-b-[50%] rounded-t-[40%] -mt-1 border border-black/20 dark:border-white/10 shadow-lg transition-all duration-300
+                w-8 h-12 rounded-b-[50%] rounded-t-[40%] -mt-1 border border-black/20 dark:border-white/10 shadow-lg transition-all duration-300 cursor-pointer pointer-events-auto
                 ${isDark ? 'bg-neutral-800 shadow-none' : 'bg-yellow-300 shadow-[0_0_30px_rgba(253,224,71,0.6)] animate-pulse'}
             `}
                 >

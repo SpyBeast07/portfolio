@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "@/components/Navbar";
 import { ProjectCard } from "@/components/ProjectCard";
+import GithubStats from "@/components/GithubStats";
 
 export default function WorkPage() {
     return (
@@ -64,6 +65,9 @@ export default function WorkPage() {
                         demoLink="https://demo.com"
                     />
                 </div>
+
+                {/* GitHub Contribution Chart */}
+                <GithubStats />
             </div>
         </div>
     );
