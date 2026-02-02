@@ -78,8 +78,7 @@ export default function AboutContent() {
                 {/* Resume Button */}
                 <div className="mb-24 lg:mb-32">
                     <a
-                        href={resume.url}
-                        download={resume.filename}
+                        href="/resume"
                         className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-sm transition-transform"
                         style={{
                             color: "var(--background)",
