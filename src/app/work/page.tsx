@@ -30,7 +30,7 @@ export default function WorkPage() {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 gap-12">
                     {projects.map((project) => (
                         <ProjectCard
                             key={project.title}

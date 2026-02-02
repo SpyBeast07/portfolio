@@ -3,7 +3,9 @@
 
 import { BriefcaseIcon, MapPinIcon } from "./ui/Icons";
 
-export const TimelineItem = ({ title, subtitle, date, description, tags, location, type, cgpa }: { title: string, subtitle: string, date: string, description: string, tags?: string[], location?: string, type?: string, cgpa?: string }) => (
+import { Education } from "@/data";
+
+export const TimelineItem = ({ title, subtitle, date, description, tags, location, type, cgpa, related }: { title: string, subtitle: string, date: string, description: string, tags?: string[], location?: string, type?: string, cgpa?: string, related?: Education[] }) => (
     <div
         className="relative pl-8 pb-12 last:pb-0"
         style={{
@@ -67,6 +69,38 @@ export const TimelineItem = ({ title, subtitle, date, description, tags, locatio
                     >
                         {tag}
                     </span>
+                ))}
+            </div>
+        )}
+
+        {/* Nested Related Items */}
+        {related && (
+            <div className="mt-8 space-y-8">
+                {related.map((item) => (
+                    <div key={item.subtitle} className="relative pl-6 border-l border-dashed" style={{ borderColor: "color-mix(in oklab, var(--foreground) 20%, transparent)" }}>
+                        <div className="absolute left-[-5px] top-1.5 w-2.5 h-2.5 rounded-full" style={{ backgroundColor: "color-mix(in oklab, var(--foreground) 30%, transparent)" }} />
+
+                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
+                            <h4 className="text-md font-bold font-playfair" style={{ color: "var(--foreground)" }}>
+                                {item.title}
+                            </h4>
+                            <span className="text-xs font-mono uppercase tracking-widest" style={{ color: "color-mix(in oklab, var(--foreground) 50%, transparent)" }}>
+                                {item.date}
+                            </span>
+                        </div>
+
+                        <div className="text-sm font-medium text-purple-400 mb-2">{item.subtitle}</div>
+
+                        {item.cgpa && (
+                            <div className="text-xs font-mono mb-2" style={{ color: "color-mix(in oklab, var(--foreground) 50%, transparent)" }}>
+                                <span className="font-bold">CGPA:</span> {item.cgpa}
+                            </div>
+                        )}
+
+                        <p className="text-sm leading-relaxed" style={{ color: "color-mix(in oklab, var(--foreground) 60%, transparent)" }}>
+                            {item.description}
+                        </p>
+                    </div>
                 ))}
             </div>
         )}

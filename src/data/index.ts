@@ -43,7 +43,7 @@ export const email = "kggupta.work@gmail.com";
 export const pageHeadings = {
     work: {
         title: "All Projects",
-        description: "A collection of my work, ranging from open-source tools to commercial applications.",
+        description: "A collection of my work, ranging from AI research to full-stack applications.",
     },
     blogs: {
         title: "Writing",
@@ -59,13 +59,14 @@ export const resume = {
 export const about = {
     headline: "Nice to meet you. I'm Kushagra.",
     short: [
-        "I'm a developer and AI enthusiast with a passion for building pixel-perfect, intuitive user interfaces. I thrive at the intersection of design and engineering, creating robust and scalable code while ensuring a seamless user experience.",
-        "Currently, I'm exploring the frontiers of Generative AI and Large Language Models, looking for ways to integrate intelligent agents into everyday web applications.",
+        "I'm a Developer & AI Enthusiast with expertise in Full Stack Development and Generative AI. I have experience building scalable web applications and AI-powered agents, with a strong foundation in Data Structures and Algorithms.",
+        "Currently, I'm exploring the frontiers of RAG (Retrieval-Augmented Generation) and Large Language Models, looking for ways to integrate intelligent agents into everyday web applications.",
     ],
     long: [
-        "I'm a developer and AI enthusiast with a passion for building pixel-perfect, intuitive user interfaces. I thrive at the intersection of design and engineering, creating robust and scalable code while ensuring a seamless user experience.",
-        "Currently, I'm exploring the frontiers of Generative AI and Large Language Models, looking for ways to integrate intelligent agents into everyday web applications. When I'm not coding, you can find me reading about the latest tech trends or experimenting with new frameworks.",
-        "I build modern frontend interfaces and AI-powered applications with a strong focus on performance, motion, and clean architecture.",
+        "I'm a Developer & AI Enthusiast with expertise in Full Stack Development and Generative AI. I have experience building scalable web applications and AI-powered agents, with a strong foundation in Data Structures and Algorithms.",
+        "My technical toolkit spans across the full stack—from React and Node.js to PyTorch and Google Cloud. I have a proven track record of delivering production-grade applications, whether it's optimising MERN stack architectures or engineering high-performance RAG systems.",
+        "When I'm not coding, you can find me diving deep into research papers on Transformers or experimenting with new frameworks to push the boundaries of what's possible.",
+        "I build modern frontend interfaces and AI-powered applications with a strong focus on performance, motion, and clean architecture."
     ],
 };
 
@@ -81,22 +82,22 @@ export interface Experience {
 
 export const experiences: Experience[] = [
     {
-        title: "Frontend Developer Intern",
-        subtitle: "TechCorp Inc.",
-        date: "2023 — Present",
-        location: "Bangalore, India",
+        title: "Full Stack Development Intern",
+        subtitle: "Dobby Ads",
+        date: "May 2025 — July 2025",
+        location: "Remote",
         type: "Internship",
-        description: "Developed and maintained critical components for the main product dashboard. Improved site performance by 40% through code splitting and image optimization.",
-        tags: ["React", "TypeScript", "Tailwind", "Redux"],
+        description: "Built & deployed two MERN-based web applications with MongoDB, designing scalable architecture. Automated 30+ Cypress test cases, reducing post-release bugs by 25% and implemented Prometheus + Grafana dashboards for real-time API monitoring.",
+        tags: ["MERN", "MongoDB", "Cypress", "Prometheus", "Grafana"],
     },
     {
-        title: "Freelance Web Developer",
-        subtitle: "Self-Employed",
-        date: "2021 — 2023",
+        title: "Android Development Intern",
+        subtitle: "Vedic Bodhi Pvt. Ltd.",
+        date: "May 2024 — July 2024",
         location: "Remote",
-        type: "Freelance",
-        description: "Delivered custom web solutions for 5+ clients including e-commerce sites and portfolio websites. Managed end-to-end development lifecycle.",
-        tags: ["Next.js", "Shopify", "Figma"],
+        type: "Internship",
+        description: "Developed secure user authentication with Firebase and integrated REST APIs for real-time updates. Enhanced app performance and user experience through optimized API calls and responsive UI design.",
+        tags: ["Android", "Firebase", "REST APIs"],
     },
 ];
 
@@ -104,19 +105,44 @@ export interface Education {
     title: string;
     subtitle: string;
     date: string;
-    cgpa: string;
+    cgpa?: string;
     description: string;
+    related?: Education[];
 }
 
 export const education: Education[] = [
     {
         title: "Computer Science & Engineering",
-        subtitle: "Bachelor of Technology",
-        date: "2020 — 2024",
-        cgpa: "8.8/10",
-        description: "Focused on Data Structures, Algorithms, and Artificial Intelligence. Led the technical club and organized 3 major hackathons.",
+        subtitle: "JK Lakshmipat University, Jaipur",
+        date: "Expected 2026",
+        cgpa: "7.6/10",
+        description: "Bachelor of Technology. Focused on Data Structures, Algorithms, and AI.",
+        related: [
+            {
+                title: "Semester Exchange Student",
+                subtitle: "IIIT, Hyderabad",
+                date: "Monsoon 2025",
+                description: "Focused on advanced Computer Science curriculum.",
+            },
+            {
+                title: "Semester Exchange Student",
+                subtitle: "IIT, Gandhinagar",
+                date: "December 2023",
+                cgpa: "7/10",
+                description: "Completed a semester exchange with a focus on core engineering principles.",
+            },
+        ]
     },
 ];
+
+export const skills = {
+    languagesAndCore: ["Python", "C++", "Java", "JavaScript", "Bash"],
+    frontend: ["HTML", "CSS", "React", "React Hook Form", "TanStack", "Axios", "Zod", "Zustand"],
+    backendAndAPIs: ["Node.js", "FastAPI", "REST APIs", "JWT Authentication", "SQLAlchemy", "Alembic", "Pydantic", "Uvicorn (ASGI)"],
+    dataMLAndVisualization: ["PyTorch", "TensorFlow", "NumPy", "Pandas", "Scikit-learn", "SciPy", "OpenCV", "Matplotlib"],
+    databasesCloudAndMonitoring: ["MongoDB", "MySQL", "PostgreSQL", "Docker", "Firebase", "Google Cloud Platform (GCP)", "Vercel", "Prometheus", "Grafana", "Elasticsearch"],
+    toolsAndProductivity: ["Git", "GitHub", "Postman", "Cypress", "Mocha", "Streamlit", "Figma", "LaTeX", "Microsoft Excel", "Notion"],
+};
 
 export interface Project {
     title: string;
@@ -124,41 +150,56 @@ export interface Project {
     tags: string[];
     image?: string;
     githubLink: string;
-    demoLink: string;
+    demoLink?: string;
 }
 
 export const projects: Project[] = [
     {
-        title: "AI Code Assistant",
-        description: "A VS Code extension that uses local LLMs to suggest code completions. 1k+ installs on marketplace.",
-        tags: ["Python", "TypeScript", "LlamaCPP"],
-        image: "https://placehold.co/600x400/1a1a1a/ffffff?text=AI+Code+Assistant",
-        githubLink: "https://github.com",
-        demoLink: "https://demo.com"
+        title: "Legal Redline Sandbox",
+        description: "Top 20 global finish in GenAI Hackathon. Spearheaded Google Cloud infrastructure (CloudSQL, Docker) and implemented an async notification system for real-time contract analysis.",
+        tags: ["Python", "FastAPI", "React", "Google Cloud", "Gemini API"],
+        image: "https://placehold.co/600x400/1a1a1a/ffffff?text=Legal+Redline",
+        githubLink: "#",
+        demoLink: "#"
     },
     {
-        title: "Portfolio V1",
-        description: "The first iteration of my personal portfolio built with pure HTML/CSS and minimal JS.",
-        tags: ["HTML", "CSS", "Gulp"],
-        image: "https://placehold.co/600x400/1a1a1a/ffffff?text=Portfolio+V1",
-        githubLink: "https://github.com",
-        demoLink: "https://demo.com"
+        title: "SME AI Agent",
+        description: "Production-grade RAG system with 95%+ retrieval consistency using Elasticsearch and FAISS. Designed a FastAPI-based server with async pipelines achieving <800ms latency.",
+        tags: ["RAG", "LangChain", "Elasticsearch", "Docker", "FastAPI"],
+        image: "https://placehold.co/600x400/1a1a1a/ffffff?text=SME+AI+Agent",
+        githubLink: "#",
     },
     {
-        title: "E-Commerce Dashboard",
-        description: "A comprehensive dashboard for managing products, orders, and analytics for an online store.",
-        tags: ["React", "Next.js", "Tremor"],
-        image: "https://placehold.co/600x400/1a1a1a/ffffff?text=E-Commerce+Dashboard",
-        githubLink: "https://github.com",
-        demoLink: "https://demo.com"
+        title: "Byte-Latent Transformer",
+        description: "Developed a novel BLT model in PyTorch matching character-level baselines but with a 91% reduction in sequence length. Analyzed performance trade-offs vs standard tokenization.",
+        tags: ["PyTorch", "NLP", "Transformers", "Research"],
+        image: "https://placehold.co/600x400/1a1a1a/ffffff?text=Byte-Latent+Transformer",
+        githubLink: "#",
+        demoLink: "#"
     },
     {
-        title: "Task Management App",
-        description: "A collaborative task manager with real-time updates and team workspaces.",
-        tags: ["Vue.js", "Firebase", "Tailwind"],
-        image: "https://placehold.co/600x400/1a1a1a/ffffff?text=Task+Manager",
-        githubLink: "https://github.com",
-        demoLink: "https://demo.com"
+        title: "Multilingual Language Model",
+        description: "Trained an 18.5M parameter transformer on 400M tokens (English-Hindi-Bengali). Implemented SentencePiece tokenizer and Fine-tuned Gemma-270M with LoRA.",
+        tags: ["PyTorch", "LoRA", "Multilingual", "LLMs"],
+        image: "https://placehold.co/600x400/1a1a1a/ffffff?text=Multilingual+LLM",
+        githubLink: "#",
+        demoLink: "#"
+    },
+    {
+        title: "ALPR System",
+        description: "End-to-end Automatic License Plate Recognition pipeline using a custom 5-layer CNN (71.48% IoU) and EasyOCR. Optimized for real-time inference with TTA.",
+        tags: ["Computer Vision", "PyTorch", "EasyOCR", "CNN"],
+        image: "https://placehold.co/600x400/1a1a1a/ffffff?text=ALPR+System",
+        githubLink: "#",
+        demoLink: "#"
+    },
+    {
+        title: "Netflix Clone",
+        description: "Scalable frontend architecture with reusable React components and effective state management. Fully responsive UI optimized for cross-device compatibility.",
+        tags: ["React.js", "Frontend", "UI/UX"],
+        image: "https://placehold.co/600x400/1a1a1a/ffffff?text=Netflix+Clone",
+        githubLink: "#",
+        demoLink: "#"
     }
 ];
 
@@ -168,35 +209,16 @@ export interface Blog {
     date: string;
     readTime: string;
     slug: string;
+    image?: string;
 }
 
 export const blogs: Blog[] = [
     // {
     //     title: "Building Scalable UI Systems",
-    //     excerpt: "In modern frontend development, consistency is key. We start by exploring the atomic design methodology and how it applies to React component libraries. This article covers tokenization, theming, and component composition.",
+    //     excerpt: "In modern frontend development, consistency is key. We start by exploring the atomic design methodology and how it applies to React component libraries.",
     //     date: "Mar 15, 2024",
     //     readTime: "5 min read",
-    //     slug: "#"
-    // },
-    // {
-    //     title: "The Future of AI Agents",
-    //     excerpt: "Autonomous agents are rapidly becoming more capable. From planning complex tasks to executing code in sandboxed environments, we are witnessing a paradigm shift in how we interact with software. Here's what you need to know.",
-    //     date: "Feb 28, 2024",
-    //     readTime: "8 min read",
-    //     slug: "#"
-    // },
-    // {
-    //     title: "Understanding React Server Components",
-    //     excerpt: "A deep dive into how RSCs change the way we build Next.js applications, covering the benefits of reduced bundle size and direct backend access.",
-    //     date: "Jan 10, 2024",
-    //     readTime: "6 min read",
-    //     slug: "#"
-    // },
-    // {
-    //     title: "Mastering TypeScript Generics",
-    //     excerpt: "Generics can be intimidating, but they are essential for building reusable components. Learn patterns for creating flexible and type-safe utilities.",
-    //     date: "Dec 05, 2023",
-    //     readTime: "10 min read",
-    //     slug: "#"
+    //     slug: "#",
+    //     image: "https://placehold.co/600x400/222/FFF?text=UI+Systems"
     // }
 ];

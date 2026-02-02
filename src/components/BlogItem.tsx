@@ -4,10 +4,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export const BlogItem = ({ title, excerpt, date, slug, readTime }: { title: string, excerpt: string, date: string, slug: string, readTime: string }) => (
+export const BlogItem = ({ title, excerpt, date, slug, readTime, image, showImage = true }: { title: string, excerpt: string, date: string, slug: string, readTime: string, image?: string, showImage?: boolean }) => (
     <Link
         href={slug}
-        className="group flex flex-col md:flex-row gap-6 mb-12 items-start cursor-pointer p-4 rounded-xl transition-colors -mx-4"
+        className="group flex flex-col md:flex-row-reverse gap-6 mb-12 items-center cursor-pointer p-4 rounded-xl transition-colors -mx-4"
         onMouseEnter={(e) => {
             e.currentTarget.style.backgroundColor = "color-mix(in oklab, var(--foreground) 5%, transparent)";
         }}
@@ -16,20 +16,22 @@ export const BlogItem = ({ title, excerpt, date, slug, readTime }: { title: stri
         }}
     >
         {/* Blog Image */}
-        <div
-            className="w-full md:w-48 h-32 relative flex-shrink-0 overflow-hidden rounded-lg"
-            style={{
-                backgroundColor: "color-mix(in oklab, var(--foreground) 5%, transparent)",
-                border: "1px solid color-mix(in oklab, var(--foreground) 10%, transparent)",
-            }}
-        >
-            <Image
-                src="https://placehold.co/600x400/222/FFF?text=Blog"
-                alt="Blog"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-        </div>
+        {showImage && (
+            <div
+                className="w-full md:w-48 h-32 relative flex-shrink-0 overflow-hidden rounded-lg"
+                style={{
+                    backgroundColor: "color-mix(in oklab, var(--foreground) 5%, transparent)",
+                    border: "1px solid color-mix(in oklab, var(--foreground) 10%, transparent)",
+                }}
+            >
+                <Image
+                    src={image || "https://placehold.co/600x400/222/FFF?text=Blog"}
+                    alt={title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+            </div>
+        )}
 
         {/* Content */}
         <div className="flex-1 min-w-0">

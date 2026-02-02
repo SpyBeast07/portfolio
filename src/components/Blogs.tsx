@@ -16,6 +16,7 @@ export default function Blogs() {
                         <BlogItem
                             key={blog.title}
                             {...blog}
+                            showImage={false}
                         />
                     ))
                 ) : (
@@ -38,11 +39,13 @@ export default function Blogs() {
                 )}
             </div>
 
-            <div className="mt-4">
-                <CustomButton href="/blogs">
-                    View More Blogs
-                </CustomButton>
-            </div>
+            {blogs.length > 2 && (
+                <div className="mt-4">
+                    <CustomButton href="/blogs">
+                        View More Blogs
+                    </CustomButton>
+                </div>
+            )}
         </section>
     );
 }

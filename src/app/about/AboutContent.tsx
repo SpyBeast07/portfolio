@@ -2,8 +2,9 @@
 
 import Navbar from "@/components/Navbar";
 import { TimelineItem } from "@/components/TimelineItem";
-import { about, education, experiences, resume, socialLinks } from "@/data";
+import { about, education, experiences, resume, skills, socialLinks } from "@/data";
 import PageHeading from "@/components/ui/PageHeading";
+import SectionHeading from "@/components/ui/SectionHeading";
 import { DownloadIcon, EmailIcon, FileTextIcon, GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
 
 export default function AboutContent() {
@@ -101,12 +102,7 @@ export default function AboutContent() {
                 <div className="space-y-4">
                     {/* Experience */}
                     <div className="mb-24 lg:mb-32">
-                        <h4
-                            className="font-playfair text-5xl font-bold mb-12"
-                            style={{ color: "var(--foreground)" }}
-                        >
-                            Experience
-                        </h4>
+                        <SectionHeading className="text-5xl mb-12">Experience</SectionHeading>
                         {experiences.map((exp) => (
                             <TimelineItem
                                 key={exp.title}
@@ -116,19 +112,42 @@ export default function AboutContent() {
                     </div>
 
                     {/* Education */}
-                    <div>
-                        <h4
-                            className="font-playfair text-5xl font-bold mb-12"
-                            style={{ color: "var(--foreground)" }}
-                        >
-                            Education
-                        </h4>
+                    <div className="mb-24 lg:mb-32">
+                        <SectionHeading className="text-5xl mb-12">Education</SectionHeading>
                         {education.map((edu) => (
                             <TimelineItem
                                 key={edu.title}
                                 {...edu}
                             />
                         ))}
+                    </div>
+
+                    {/* Skills */}
+                    <div className="mb-24 lg:mb-32">
+                        <SectionHeading className="text-5xl mb-12">Skills</SectionHeading>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            {Object.entries(skills).map(([category, items]) => (
+                                <div key={category}>
+                                    <h5 className="text-xl font-medium mb-4 capitalize" style={{ color: "var(--foreground)" }}>
+                                        {category.replace(/([A-Z])/g, " $1").trim()}
+                                    </h5>
+                                    <div className="flex flex-wrap gap-2">
+                                        {items.map((skill) => (
+                                            <span
+                                                key={skill}
+                                                className="px-3 py-1 rounded-full text-sm border transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-800"
+                                                style={{
+                                                    color: "color-mix(in oklab, var(--foreground) 80%, transparent)",
+                                                    borderColor: "color-mix(in oklab, var(--foreground) 10%, transparent)",
+                                                }}
+                                            >
+                                                {skill}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

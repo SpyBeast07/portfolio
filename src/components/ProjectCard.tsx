@@ -16,7 +16,7 @@ interface ProjectCardProps {
 
 export const ProjectCard = ({ title, description, tags, image, githubLink, demoLink }: ProjectCardProps) => (
     <div
-        className="group relative rounded-lg transition-all overflow-hidden flex flex-col h-full"
+        className="group relative rounded-3xl transition-all overflow-hidden flex flex-col md:flex-row-reverse h-full"
         style={{
             backgroundColor: "color-mix(in oklab, var(--background) 85%, transparent)",
             border: "1px solid color-mix(in oklab, var(--foreground) 10%, transparent)",
@@ -24,18 +24,15 @@ export const ProjectCard = ({ title, description, tags, image, githubLink, demoL
     >
         {/* Project Image */}
         {image && (
-            <div
-                className="relative h-48 w-full overflow-hidden"
-                style={{
-                    borderBottom: "1px solid color-mix(in oklab, var(--foreground) 10%, transparent)"
-                }}
-            >
-                <Image
-                    src={image}
-                    alt={title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
+            <div className="w-full md:w-1/2 p-6 flex items-center justify-center">
+                <div className="relative w-full h-48 md:h-full min-h-[200px] rounded-3xl overflow-hidden">
+                    <Image
+                        src={image}
+                        alt={title}
+                        fill
+                        className="object-contain transition-transform duration-500 hover:scale-105"
+                    />
+                </div>
             </div>
         )}
 

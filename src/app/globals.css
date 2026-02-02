@@ -19,6 +19,9 @@
   --color-foreground: var(--foreground);
   --font-outfit: var(--font-outfit);
   --font-playfair: var(--font-playfair);
+  --font-dancing-script: var(--font-dancing-script);
+  --font-great-vibes: var(--font-great-vibes);
+  --font-sacramento: var(--font-sacramento);
 }
 
 body {
