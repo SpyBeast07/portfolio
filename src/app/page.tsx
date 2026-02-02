@@ -19,18 +19,21 @@ export default function Home() {
 
   // --- Animations ---
 
-  const nameX = useTransform(scrollY, [0, TRANSFORM_DISTANCE], ["50vw", "8rem"]);
-  const nameY = useTransform(scrollY, [0, TRANSFORM_DISTANCE], ["36vh", "18vh"]);
-  // We use standard centering because we will fix the DOM width to include Gupta
-  const nameScale = useTransform(scrollY, [0, TRANSFORM_DISTANCE], [1, 0.3]);
-  const nameTranslateX = useTransform(scrollY, [0, TRANSFORM_DISTANCE], ["-50%", "0%"]);
-  const nameTranslateY = useTransform(scrollY, [0, TRANSFORM_DISTANCE], ["-50%", "0%"]);
-
   const logoOpacity = useTransform(scrollY, [0, 200], [1, 0]);
   const logoScale = useTransform(scrollY, [0, 200], [1, 0.8]);
 
   const heroOpacity = useTransform(scrollY, [0, 150], [1, 0]);
   const pointerEventsHero = useTransform(scrollY, (v) => v > 150 ? "none" : "auto");
+
+  // Name Animation Transforms
+  const t = useTransform(scrollY, [0, 600], [0, 1]);
+
+  const nameScale = useTransform(t, [0, 1], [1, 0.25]);
+  const nameX = useTransform(t, [0, 1], ["-50%", "0%"]);
+  const nameLeft = useTransform(t, (v) => `calc(50% * ${1 - v} + 8rem * ${v})`);
+  const nameTop = useTransform(t, [0, 1], ["22vh", "20vh"]);
+
+
 
   const sidebarOpacity = useTransform(scrollY, [400, TRANSFORM_DISTANCE], [0, 1]);
   const sidebarY = useTransform(scrollY, [400, TRANSFORM_DISTANCE], [20, 0]);
@@ -61,22 +64,23 @@ export default function Home() {
 
       {/* NAME LAYER */}
 
-      {/* Desktop: Animated Transform */}
+      {/* Desktop: Static Fade (Same as Mobile style but separate div) */}
       <div className="fixed inset-0 z-10 pointer-events-none hidden md:block">
         <motion.div
           className="absolute pointer-events-auto"
           style={{
-            left: nameX,
-            top: nameY,
+            top: nameTop,
+            left: nameLeft,
+            x: nameX,
             scale: nameScale,
-            x: nameTranslateX,
-            y: nameTranslateY,
-            transformOrigin: "0 0",
+            transformOrigin: "left top",
+            zIndex: 40,
           }}
         >
+
           <h1 className="inline-flex items-baseline font-playfair text-[14vw] leading-none font-bold tracking-tighter text-foreground/90 select-none pb-10 whitespace-nowrap">
             Kushagra
-            <span className="absolute left-[76%] top-[45%] translate-y-[2vw] font-great-vibes text-[7vw] text-yellow-500 rotate-[-10deg] opacity-90 tracking-wider">
+            <span className="absolute left-[77%] top-[45%] translate-y-[2vw] font-great-vibes text-[7vw] text-yellow-500 rotate-[-10deg] opacity-90 tracking-wider">
               Gupta
             </span>
           </h1>
