@@ -9,6 +9,7 @@ import About from "@/components/About";
 import Work from "@/components/Work";
 import Blogs from "@/components/Blogs";
 import Footer from "@/components/Footer";
+import SocialPill from "@/components/SocialPill";
 
 export default function Home() {
   const { scrollY } = useScroll();
@@ -18,8 +19,8 @@ export default function Home() {
 
   // --- Animations ---
 
-  const nameX = useTransform(scrollY, [0, TRANSFORM_DISTANCE], ["52vw", "8rem"]);
-  const nameY = useTransform(scrollY, [0, TRANSFORM_DISTANCE], ["39vh", "18vh"]);
+  const nameX = useTransform(scrollY, [0, TRANSFORM_DISTANCE], ["50vw", "8rem"]);
+  const nameY = useTransform(scrollY, [0, TRANSFORM_DISTANCE], ["36vh", "18vh"]);
   // We use standard centering because we will fix the DOM width to include Gupta
   const nameScale = useTransform(scrollY, [0, TRANSFORM_DISTANCE], [1, 0.3]);
   const nameTranslateX = useTransform(scrollY, [0, TRANSFORM_DISTANCE], ["-50%", "0%"]);
@@ -44,13 +45,24 @@ export default function Home() {
 
       {/* Tools */}
       {/* ThemeBulb is global in layout.tsx */}
-      <VerticalEmail />
+
+      {/* Desktop: Fixed */}
+      <div className="hidden md:block">
+        <VerticalEmail />
+      </div>
+
+      {/* Mobile: Fades out */}
+      <motion.div style={{ opacity: heroOpacity, pointerEvents: pointerEventsHero as any }} className="block md:hidden">
+        <VerticalEmail />
+      </motion.div>
 
 
       {/* --- LAYER 1: HERO CONTAINER (Contains Name & Logo) --- */}
 
       {/* NAME LAYER */}
-      <div className="fixed inset-0 z-10 pointer-events-none">
+
+      {/* Desktop: Animated Transform */}
+      <div className="fixed inset-0 z-10 pointer-events-none hidden md:block">
         <motion.div
           className="absolute pointer-events-auto"
           style={{
@@ -64,8 +76,26 @@ export default function Home() {
         >
           <h1 className="inline-flex items-baseline font-playfair text-[14vw] leading-none font-bold tracking-tighter text-foreground/90 select-none pb-10 whitespace-nowrap">
             Kushagra
-            {/* Unified Flow: Gupta contributes to absolute width but overlaps via negative margin */}
-            <span className="relative ml-[-17%] translate-y-8 font-great-vibes text-7xl md:text-8xl text-yellow-500 rotate-[-10deg] opacity-90 tracking-wider">
+            <span className="absolute left-[76%] top-[45%] translate-y-[2vw] font-great-vibes text-[7vw] text-yellow-500 rotate-[-10deg] opacity-90 tracking-wider">
+              Gupta
+            </span>
+          </h1>
+        </motion.div>
+      </div>
+
+      {/* Mobile: Fade Out & Centered */}
+      <div className="fixed inset-0 z-10 pointer-events-none block md:hidden">
+        <motion.div
+          className="absolute left-1/2 -translate-x-1/2 pointer-events-auto"
+          style={{
+            top: "25vh", // Lifted to avoid logo overlap
+            opacity: heroOpacity,
+          }}
+        >
+          <h1 className="relative inline-flex items-baseline font-playfair text-[18vw] leading-none font-bold tracking-tighter text-foreground/90 select-none pb-8 whitespace-nowrap">
+            Kushagra
+            {/* Absolute positioning for Gupta ensures Kushagra remains perfectly centered */}
+            <span className="absolute left-[75%] top-[35%] translate-y-[4vw] font-great-vibes text-[10vw] text-yellow-500 rotate-[-10deg] opacity-90 tracking-wider">
               Gupta
             </span>
           </h1>
@@ -75,7 +105,7 @@ export default function Home() {
       {/* LOGO LAYER */}
       <motion.div
         style={{ opacity: logoOpacity, scale: logoScale }}
-        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none mt-4 ml-4"
+        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none"
       >
         {/* User's Exact Logo Structure */}
         <div className="group relative h-40 w-40 rounded-full bg-neutral-900 border border-white/10 shadow-2xl flex items-center justify-center overflow-hidden hover:scale-105 transition-transform duration-500 ring-2 ring-white/5 pointer-events-auto">
@@ -117,11 +147,20 @@ export default function Home() {
       {/* --- LAYER 3: HERO-ONLY ELEMENTS (FADE OUT) --- */}
 
       {/* 2. Floating Navbar (Centered Top) */}
-      <motion.div style={{ opacity: heroOpacity, pointerEvents: pointerEventsHero as any }} className="fixed top-0 left-0 w-full h-full z-30 pointer-events-none">
+
+      {/* Desktop: Fades out when sidebar appears */}
+      <motion.div style={{ opacity: heroOpacity, pointerEvents: pointerEventsHero as any }} className="hidden md:block fixed top-0 left-0 w-full h-full z-30 pointer-events-none">
         <div className="absolute top-8 left-1/2 -translate-x-1/2 pointer-events-auto">
           <Navbar mode="floating" />
         </div>
       </motion.div>
+
+      {/* Mobile: Always visible */}
+      <div className="block md:hidden fixed top-0 left-0 w-full h-full z-30 pointer-events-none">
+        <div className="absolute top-8 left-1/2 -translate-x-1/2 pointer-events-auto">
+          <Navbar mode="floating" />
+        </div>
+      </div>
 
       {/* 3. Hero Role (Bottom Right) */}
       <motion.div style={{ opacity: heroOpacity }} className="fixed bottom-16 right-16 z-20 hidden md:flex flex-col items-center gap-2 text-center">
@@ -137,84 +176,20 @@ export default function Home() {
 
       {/* 4. Hero Socials (Bottom Left) - Always Visible, Fixed Position */}
       {/* 4. Hero Socials (Bottom Left) */}
+
+
+      {/* 4. Hero Socials (Bottom Left) - Desktop Fixed */}
       <div className="fixed bottom-16 left-32 z-[60] hidden md:block pointer-events-auto">
-        <div
-          className="flex items-center gap-8 px-8 py-4 rounded-full backdrop-blur-md shadow-lg transition-colors duration-300"
-          style={{
-            backgroundColor:
-              "color-mix(in oklab, var(--background) 70%, transparent)",
-            border:
-              "1px solid color-mix(in oklab, var(--foreground) 10%, transparent)",
-          }}
-        >
-          {[
-            {
-              href: "https://github.com/SpyBeast07",
-              label: "GitHub",
-              icon: (
-                <>
-                  <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0 3 1.5-2.64-.5-5.36.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                  <path d="M9 18c-4.51 2-5-2-7-2" />
-                </>
-              ),
-            },
-            {
-              href: "https://www.linkedin.com/in/spybeast07/",
-              label: "LinkedIn",
-              icon: (
-                <>
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                  <rect width="4" height="12" x="2" y="9" />
-                  <circle cx="4" cy="4" r="2" />
-                </>
-              ),
-            },
-            {
-              href: "mailto:kggupta.work@gmail.com",
-              label: "Email",
-              icon: (
-                <>
-                  <rect width="20" height="16" x="2" y="4" rx="2" />
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                </>
-              ),
-            },
-          ].map(({ href, label, icon }) => (
-            <a
-              key={label}
-              href={href}
-              aria-label={label}
-              className="transition-transform duration-200"
-              style={{
-                color: "color-mix(in oklab, var(--foreground) 60%, transparent)",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = "var(--foreground)";
-                e.currentTarget.style.transform = "scale(1.1)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color =
-                  "color-mix(in oklab, var(--foreground) 60%, transparent)";
-                e.currentTarget.style.transform = "scale(1)";
-              }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                {icon}
-              </svg>
-            </a>
-          ))}
-        </div>
+        <SocialPill />
       </div>
+
+      {/* 4b. Hero Socials (Center Below Logo) - Mobile Scroll Fade */}
+      <motion.div
+        style={{ opacity: logoOpacity, pointerEvents: pointerEventsHero as any }}
+        className="fixed top-[82%] left-1/2 -translate-x-1/2 z-[60] md:hidden pointer-events-auto origin-center scale-85"
+      >
+        <SocialPill />
+      </motion.div>
 
 
       {/* --- LAYER 4: SCROLL CONTENT (RIGHT COLUMN) --- */}

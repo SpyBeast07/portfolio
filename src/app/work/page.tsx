@@ -67,6 +67,12 @@ export default function WorkPage() {
                 </div>
 
                 {/* GitHub Contribution Chart */}
+                <h2
+                    className="font-playfair text-5xl font-bold mb-12 mt-24"
+                    style={{ color: "var(--foreground)" }}
+                >
+                    Github Stats
+                </h2>
                 <GithubStats />
             </div>
         </div>

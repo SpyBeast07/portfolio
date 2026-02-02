@@ -34,14 +34,14 @@ export default function ThemeBulb() {
     };
 
     return (
-        <div className="fixed top-0 right-12 z-50 flex flex-col items-center">
+        <div className="fixed top-0 right-4 md:right-12 z-50 flex flex-col items-center scale-75 md:scale-100 origin-top-right">
             {/* Rope */}
             <div
                 id="bulb-rope"
                 className="flex flex-col items-center pointer-events-none transition-transform origin-top hover:translate-y-1"
             >
                 {/* Rope Line */}
-                <div className="w-[1px] h-20 bg-neutral-700 dark:bg-neutral-500 relative">
+                <div className="w-[1px] h-30 md:h-20 bg-neutral-700 dark:bg-neutral-500 relative">
                     {/* Rope Texture (Simulated with dashes) */}
                     <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_45%,rgba(0,0,0,0.5)_50%,transparent_55%)] bg-[length:4px_4px]" />
                 </div>
