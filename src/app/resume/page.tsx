@@ -1,7 +1,8 @@
 "use client";
 
-import React from "react";
 import Navbar from "@/components/Navbar";
+import { resume } from "@/data";
+import { DownloadIcon } from "@/components/ui/Icons";
 
 export default function ResumePage() {
     return (
@@ -17,8 +18,8 @@ export default function ResumePage() {
                     </div>
 
                     <a
-                        href="/Kushagra_Gupta_updated_Resume.pdf"
-                        download="Kushagra_Gupta_Resume.pdf"
+                        href={resume.url}
+                        download={resume.filename}
                         className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-sm transition-transform shadow-lg hover:shadow-xl"
                         style={{
                             color: "var(--background)",
@@ -33,7 +34,7 @@ export default function ResumePage() {
                             e.currentTarget.style.transform = "scale(1)";
                         }}
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
+                        <DownloadIcon width={16} height={16} />
                         Download PDF
                     </a>
                 </div>
@@ -61,14 +62,14 @@ export default function ResumePage() {
                         </div>
                         <div className="flex-1 relative overflow-hidden rounded-b-lg md:rounded-lg" style={{ backgroundColor: "var(--background)" }}>
                             <object
-                                data="/Kushagra_Gupta_updated_Resume.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH"
+                                data={`${resume.url}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
                                 type="application/pdf"
                                 className="w-full h-full block rounded-b-lg md:rounded-lg"
                                 style={{ minHeight: '500px' }}
                             >
                                 <div className="flex items-center justify-center h-full">
                                     <p style={{ color: "color-mix(in oklab, var(--foreground) 60%, transparent)" }}>
-                                        Unable to display PDF. <a href="/Kushagra_Gupta_updated_Resume.pdf" style={{ color: "var(--foreground)", textDecoration: "underline" }}>Download</a> instead.
+                                        Unable to display PDF. <a href={resume.url} style={{ color: "var(--foreground)", textDecoration: "underline" }}>Download</a> instead.
                                     </p>
                                 </div>
                             </object>

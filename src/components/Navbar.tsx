@@ -1,40 +1,71 @@
 "use client";
 
 import Link from "next/link";
-import React from "react";
+import { usePathname } from "next/navigation";
+
 import { useEffect, useState } from "react";
 
+import { navItems, sideNavItems } from "@/data";
+
 export default function Navbar({ mode = "floating" }: { mode?: "floating" | "sidebar" }) {
-    const navItems = [
-        { name: "Home", href: "/", active: true },
-        { name: "About", href: "/about", active: false },
-        { name: "Work", href: "/work", active: false },
-        { name: "Blogs", href: "/blogs", active: false },
-    ];
-    const navItemsSide = [
-        { name: "Home", href: "#", active: true },
-        { name: "About", href: "#about", active: false },
-        { name: "Work", href: "#work", active: false },
-        { name: "Blogs", href: "#blogs", active: false },
-    ];
+    const pathname = usePathname();
+    const [activeSection, setActiveSection] = useState("");
 
-    const [isDark, setIsDark] = useState(false);
+    // --- Active State Logic ---
 
+    // Floating Mode: Active based on current route
+    const navItemsWithActive = navItems.map(item => ({
+        ...item,
+        active: pathname === item.href
+    }));
+
+    // Sidebar Mode: Active based on scroll position (Spy)
+    // ... logic remains same, just mapping over sideNavItems ...
+
+
+    // Sidebar Mode: Active based on scroll position (Spy)
     useEffect(() => {
-        setIsDark(document.documentElement.classList.contains("dark"));
-    }, []);
+        if (mode !== "sidebar") return;
 
-    const toggleTheme = () => {
-        const root = document.documentElement;
-        root.classList.toggle("dark");
-        setIsDark(root.classList.contains("dark"));
-    };
+        const sections = document.querySelectorAll("section[id]");
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveSection(entry.target.id);
+                    }
+                });
+            },
+            {
+                rootMargin: "-20% 0px -70% 0px", // Trigger when section is near top/center
+                threshold: 0,
+            }
+        );
+
+        sections.forEach((section) => observer.observe(section));
+
+        // Handle "Home" being active when near top
+        const handleScroll = () => {
+            if (window.scrollY < 100) setActiveSection(""); // Empty string maps to Home in our logic below
+        };
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            sections.forEach((section) => observer.unobserve(section));
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, [mode]);
+
+    const sideNavItemsWithActive = sideNavItems.map(item => ({
+        ...item,
+        active: (activeSection === "" && item.href === "#") || activeSection === item.href.replace("#", "")
+    }));
 
     /* --- Sidebar Mode (Vertical List) --- */
     if (mode === "sidebar") {
         return (
             <nav className="flex flex-col items-start gap-6">
-                {navItemsSide.map((item) => (
+                {sideNavItemsWithActive.map((item) => (
                     <Link
                         key={item.name}
                         href={item.href}
@@ -48,14 +79,13 @@ export default function Navbar({ mode = "floating" }: { mode?: "floating" | "sid
                         }}
                         className="group flex items-center gap-5 text-base font-medium tracking-widest uppercase transition-colors duration-300"
                         style={{
-                            color: "color-mix(in oklab, var(--foreground) 55%, transparent)",
+                            color: item.active ? "var(--foreground)" : "color-mix(in oklab, var(--foreground) 55%, transparent)",
                         }}
                         onMouseEnter={(e) => {
-                            e.currentTarget.style.color = "var(--foreground)";
+                            if (!item.active) e.currentTarget.style.color = "var(--foreground)";
                         }}
                         onMouseLeave={(e) => {
-                            e.currentTarget.style.color =
-                                "color-mix(in oklab, var(--foreground) 55%, transparent)";
+                            if (!item.active) e.currentTarget.style.color = "color-mix(in oklab, var(--foreground) 55%, transparent)";
                         }}
                     >
                         <span
@@ -81,7 +111,7 @@ export default function Navbar({ mode = "floating" }: { mode?: "floating" | "sid
                     border: "1px solid color-mix(in oklab, var(--foreground) 10%, transparent)",
                 }}
             >
-                {navItems.map((item) => (
+                {navItemsWithActive.map((item) => (
                     <Link
                         key={item.name}
                         href={item.href}
@@ -95,10 +125,7 @@ export default function Navbar({ mode = "floating" }: { mode?: "floating" | "sid
                         }}
                         className={`
                                     relative px-3 py-2 min-[375px]:px-6 min-[375px]:py-2.5 rounded-full text-sm font-medium transition-all duration-300
-                                    ${item.active
-                                ? "shadow-sm"
-                                : ""
-                            }
+                                    ${item.active ? "shadow-sm" : ""}
                                 `}
                         style={{
                             color: item.active

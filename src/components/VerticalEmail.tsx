@@ -2,9 +2,11 @@
 
 import React, { useState } from "react";
 
+import { email } from "@/data";
+
 export default function VerticalEmail() {
     const [copied, setCopied] = useState(false);
-    const email = "kggupta.work@gmail.com"; // Replace with actual email if needed
+
 
     const handleCopy = () => {
         navigator.clipboard.writeText(email);

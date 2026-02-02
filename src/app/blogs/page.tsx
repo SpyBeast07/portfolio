@@ -1,6 +1,13 @@
-import React from "react";
 import Navbar from "@/components/Navbar";
 import { BlogItem } from "@/components/BlogItem";
+import { blogs, pageHeadings } from "@/data";
+import PageHeading from "@/components/ui/PageHeading";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Blogs | Kushagra",
+    description: "Read the latest thoughts and essays by Kushagra.",
+};
 
 export default function BlogsPage() {
     return (
@@ -15,71 +22,39 @@ export default function BlogsPage() {
                         <Navbar mode="floating" />
                     </div>
                     <div className="mt-24">
-                        <h1
-                            className="font-playfair text-5xl font-bold mb-6"
-                            style={{ color: "var(--foreground)" }}
-                        >
-                            Writing
-                        </h1>
-                        <p
-                            className="max-w-2xl text-lg"
-                            style={{ color: "color-mix(in oklab, var(--foreground) 60%, transparent)" }}
-                        >
-                            Thoughts on software engineering, design systems, and the future of AI.
-                        </p>
+                        <PageHeading
+                            title={pageHeadings.blogs.title}
+                            description={<p>{pageHeadings.blogs.description}</p>}
+                        />
                     </div>
                 </div>
 
                 <div className="space-y-4">
-                    {/* 
-                        TODO: Uncomment these BlogItem components when you have real blogs to show.
-                        You can add more items here following the same pattern.
-                    */}
-                    {/* <BlogItem
-                        title="Building Scalable UI Systems"
-                        excerpt="In modern frontend development, consistency is key. We start by exploring the atomic design methodology and how it applies to React component libraries. This article covers tokenization, theming, and component composition."
-                        date="Mar 15, 2024"
-                        readTime="5 min read"
-                        slug="#"
-                    />
-                    <BlogItem
-                        title="The Future of AI Agents"
-                        excerpt="Autonomous agents are rapidly becoming more capable. From planning complex tasks to executing code in sandboxed environments, we are witnessing a paradigm shift in how we interact with software. Here's what you need to know."
-                        date="Feb 28, 2024"
-                        readTime="8 min read"
-                        slug="#"
-                    />
-                    <BlogItem
-                        title="Understanding React Server Components"
-                        excerpt="A deep dive into how RSCs change the way we build Next.js applications, covering the benefits of reduced bundle size and direct backend access."
-                        date="Jan 10, 2024"
-                        readTime="6 min read"
-                        slug="#"
-                    />
-                    <BlogItem
-                        title="Mastering TypeScript Generics"
-                        excerpt="Generics can be intimidating, but they are essential for building reusable components. Learn patterns for creating flexible and type-safe utilities."
-                        date="Dec 05, 2023"
-                        readTime="10 min read"
-                        slug="#"
-                    /> */}
-                </div>
-
-                {/* Coming Soon Placeholder */}
-                <div
-                    className="py-12 text-center rounded-lg border-dashed"
-                    style={{
-                        borderColor: "color-mix(in oklab, var(--foreground) 10%, transparent)",
-                        backgroundColor: "color-mix(in oklab, var(--background) 85%, transparent)",
-                        borderWidth: "1px",
-                    }}
-                >
-                    <p
-                        className="font-playfair italic text-lg"
-                        style={{ color: "color-mix(in oklab, var(--foreground) 50%, transparent)" }}
-                    >
-                        Thoughtful essays coming soon...
-                    </p>
+                    {blogs.length > 0 ? (
+                        blogs.map((blog) => (
+                            <BlogItem
+                                key={blog.title}
+                                {...blog}
+                            />
+                        ))
+                    ) : (
+                        /* Coming Soon Placeholder */
+                        <div
+                            className="py-12 text-center rounded-lg border-dashed"
+                            style={{
+                                borderColor: "color-mix(in oklab, var(--foreground) 10%, transparent)",
+                                backgroundColor: "color-mix(in oklab, var(--background) 85%, transparent)",
+                                borderWidth: "1px",
+                            }}
+                        >
+                            <p
+                                className="font-playfair italic text-lg"
+                                style={{ color: "color-mix(in oklab, var(--foreground) 50%, transparent)" }}
+                            >
+                                Thoughtful essays coming soon...
+                            </p>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
