@@ -1,5 +1,5 @@
 import PageHeading from "@/components/ui/PageHeading";
-import { pageHeadings, projects } from "@/data";
+import { pageHeadings, projects, skills } from "@/data";
 import Navbar from "@/components/Navbar";
 import { ProjectCard } from "@/components/ProjectCard";
 import GithubStats from "@/components/GithubStats";
@@ -37,6 +37,37 @@ export default function WorkPage() {
                             {...project}
                         />
                     ))}
+                </div>
+
+                {/* Skills Section */}
+                <div className="mb-24 mt-24">
+                    <PageHeading
+                        title="My Technical Playground"
+                        description={<p>Things I’ve built with and experimented on.</p>}
+                    />
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {Object.entries(skills).map(([category, items]) => (
+                            <div key={category}>
+                                <h5 className="text-xl font-medium mb-4 capitalize" style={{ color: "var(--foreground)" }}>
+                                    {category.replace(/([A-Z])/g, " $1").trim()}
+                                </h5>
+                                <div className="flex flex-wrap gap-2">
+                                    {items.map((skill) => (
+                                        <span
+                                            key={skill}
+                                            className="px-3 py-1 rounded-full text-sm border transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-800"
+                                            style={{
+                                                color: "color-mix(in oklab, var(--foreground) 80%, transparent)",
+                                                borderColor: "color-mix(in oklab, var(--foreground) 10%, transparent)",
+                                            }}
+                                        >
+                                            {skill}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
                 {/* GitHub Contribution Chart */}

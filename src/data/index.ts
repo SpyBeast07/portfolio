@@ -59,14 +59,17 @@ export const resume = {
 export const about = {
     headline: "Nice to meet you. I'm Kushagra.",
     short: [
-        "I'm a Developer & AI Enthusiast with expertise in Full Stack Development and Generative AI. I have experience building scalable web applications and AI-powered agents, with a strong foundation in Data Structures and Algorithms.",
+        "I work as a Software Developer at Eurobliz, focusing on full-stack web applications and AI integrations.",
+        "I studied Computer Science and Engineering at JKLU, Jaipur, with visiting semesters at IIIT Hyderabad and IIT Gandhinagar.",
+        // Your hobbies and something about your personality and curosity
         "Currently, I'm exploring the frontiers of RAG (Retrieval-Augmented Generation) and Large Language Models, looking for ways to integrate intelligent agents into everyday web applications.",
     ],
     long: [
         "I'm a Developer & AI Enthusiast with expertise in Full Stack Development and Generative AI. I have experience building scalable web applications and AI-powered agents, with a strong foundation in Data Structures and Algorithms.",
         "My technical toolkit spans across the full stack—from React and Node.js to PyTorch and Google Cloud. I have a proven track record of delivering production-grade applications, whether it's optimising MERN stack architectures or engineering high-performance RAG systems.",
         "When I'm not coding, you can find me diving deep into research papers on Transformers or experimenting with new frameworks to push the boundaries of what's possible.",
-        "I build modern frontend interfaces and AI-powered applications with a strong focus on performance, motion, and clean architecture."
+        // Star line!! Do not remove it.
+        "I build like a one-person team by leveraging AI as a productivity multiplier.\nAI doesn’t replace learning for me — it reduces manual overhead, just as calculators enhanced mathematics rather than ending it.\nI still focus on fundamentals, problem-solving, and understanding systems deeply."
     ],
 };
 
@@ -82,6 +85,15 @@ export interface Experience {
 
 export const experiences: Experience[] = [
     {
+        title: "Software Development Intern",
+        subtitle: "Eurobliz",
+        date: "Jan 2026 — Current",
+        location: "Remote",
+        type: "Internship",
+        description: "Working on building a scalable web application with a focus on performance, motion, and clean architecture using different technologies and tech-stacks.",
+        tags: ["Frontend", "Backend"],
+    },
+    {
         title: "Full Stack Development Intern",
         subtitle: "Dobby Ads",
         date: "May 2025 — July 2025",
@@ -92,12 +104,12 @@ export const experiences: Experience[] = [
     },
     {
         title: "Android Development Intern",
-        subtitle: "Vedic Bodhi Pvt. Ltd.",
+        subtitle: "Vedic Bodhi Technologies Pvt Ltd",
         date: "May 2024 — July 2024",
         location: "Remote",
         type: "Internship",
         description: "Developed secure user authentication with Firebase and integrated REST APIs for real-time updates. Enhanced app performance and user experience through optimized API calls and responsive UI design.",
-        tags: ["Android", "Firebase", "REST APIs"],
+        tags: ["Android", "Kotlin", "Firebase", "REST APIs"],
     },
 ];
 
@@ -116,20 +128,20 @@ export const education: Education[] = [
         subtitle: "JK Lakshmipat University, Jaipur",
         date: "Expected 2026",
         cgpa: "7.6/10",
-        description: "Bachelor of Technology. Focused on Data Structures, Algorithms, and AI.",
+        description: "Focused on Data Structures, Algorithms, and specialized in Artificial Intelligence.\nCoursework includes Algorithms, Object-Oriented Programming, Operating Systems, AI, DBMS, Computer Networks.",
         related: [
             {
                 title: "Semester Exchange Student",
                 subtitle: "IIIT, Hyderabad",
                 date: "Monsoon 2025",
-                description: "Focused on advanced Computer Science curriculum.",
+                cgpa: "7.3/10",
+                description: "Focused on advanced Computer Science curriculum.\nCoursework includes Language Models and Agents, Information Retrieval and Extraction, Digital Image Processing and Product Marketing.",
             },
             {
                 title: "Semester Exchange Student",
                 subtitle: "IIT, Gandhinagar",
                 date: "December 2023",
-                cgpa: "7/10",
-                description: "Completed a semester exchange with a focus on core engineering principles.",
+                description: "Completed a semester exchange with a focus on core engineering principles like DSA, Discrete mathematics, Numerical Methods and Optimization, etc.",
             },
         ]
     },
@@ -139,7 +151,7 @@ export const skills = {
     languagesAndCore: ["Python", "C++", "Java", "JavaScript", "Bash"],
     frontend: ["HTML", "CSS", "React", "React Hook Form", "TanStack", "Axios", "Zod", "Zustand"],
     backendAndAPIs: ["Node.js", "FastAPI", "REST APIs", "JWT Authentication", "SQLAlchemy", "Alembic", "Pydantic", "Uvicorn (ASGI)"],
-    dataMLAndVisualization: ["PyTorch", "TensorFlow", "NumPy", "Pandas", "Scikit-learn", "SciPy", "OpenCV", "Matplotlib"],
+    dataMLAndVisualization: ["PyTorch", "TensorFlow", "NumPy", "Pandas", "Scikit-learn", "SciPy", "OpenCV", "Matplotlib", "Retrieval-Augmented Generation (RAG)", "Langchain", "Computer Vision (CV)", "Vector Databases", "Statistical Analysis"],
     databasesCloudAndMonitoring: ["MongoDB", "MySQL", "PostgreSQL", "Docker", "Firebase", "Google Cloud Platform (GCP)", "Vercel", "Prometheus", "Grafana", "Elasticsearch"],
     toolsAndProductivity: ["Git", "GitHub", "Postman", "Cypress", "Mocha", "Streamlit", "Figma", "LaTeX", "Microsoft Excel", "Notion"],
 };
@@ -155,51 +167,69 @@ export interface Project {
 
 export const projects: Project[] = [
     {
-        title: "Legal Redline Sandbox",
-        description: "Top 20 global finish in GenAI Hackathon. Spearheaded Google Cloud infrastructure (CloudSQL, Docker) and implemented an async notification system for real-time contract analysis.",
-        tags: ["Python", "FastAPI", "React", "Google Cloud", "Gemini API"],
-        image: "https://placehold.co/600x400/1a1a1a/ffffff?text=Legal+Redline",
-        githubLink: "#",
-        demoLink: "#"
-    },
-    {
         title: "SME AI Agent",
         description: "Production-grade RAG system with 95%+ retrieval consistency using Elasticsearch and FAISS. Designed a FastAPI-based server with async pipelines achieving <800ms latency.",
         tags: ["RAG", "LangChain", "Elasticsearch", "Docker", "FastAPI"],
         image: "https://placehold.co/600x400/1a1a1a/ffffff?text=SME+AI+Agent",
-        githubLink: "#",
+        githubLink: "https://github.com/SpyBeast07/sme-rag-agent",
+    },
+    {
+        title: "Legal Redline Sandbox",
+        description: "Advanced to the Top 90 teams globally in a GenAI hackathon. Spearheaded Google Cloud infrastructure (CloudSQL, Docker) and implemented an async notification system for real-time contract analysis.",
+        tags: ["Python", "FastAPI", "React.js", "Google Cloud", "Gemini API"],
+        image: "https://placehold.co/600x400/1a1a1a/ffffff?text=Legal+Redline",
+        githubLink: "https://github.com/IshitaAgarwal05/Legal_Redline_Sandbox",
+    },
+    {
+        title: "Multilingual Language Model",
+        description: "Trained an 18.5M parameter transformer on 400M tokens. Implemented SentencePiece tokenizer and Fine-tuned Gemma-270M with LoRA. Built custom data pipelines for cleaning and segmentation.",
+        tags: ["PyTorch", "LoRA", "Multilingual", "LLMs"],
+        image: "https://placehold.co/600x400/1a1a1a/ffffff?text=Multilingual+LLM",
+        githubLink: "https://github.com/SpyBeast07/Multilingual-LM",
     },
     {
         title: "Byte-Latent Transformer",
         description: "Developed a novel BLT model in PyTorch matching character-level baselines but with a 91% reduction in sequence length. Analyzed performance trade-offs vs standard tokenization.",
         tags: ["PyTorch", "NLP", "Transformers", "Research"],
         image: "https://placehold.co/600x400/1a1a1a/ffffff?text=Byte-Latent+Transformer",
-        githubLink: "#",
-        demoLink: "#"
-    },
-    {
-        title: "Multilingual Language Model",
-        description: "Trained an 18.5M parameter transformer on 400M tokens (English-Hindi-Bengali). Implemented SentencePiece tokenizer and Fine-tuned Gemma-270M with LoRA.",
-        tags: ["PyTorch", "LoRA", "Multilingual", "LLMs"],
-        image: "https://placehold.co/600x400/1a1a1a/ffffff?text=Multilingual+LLM",
-        githubLink: "#",
-        demoLink: "#"
-    },
-    {
-        title: "ALPR System",
-        description: "End-to-end Automatic License Plate Recognition pipeline using a custom 5-layer CNN (71.48% IoU) and EasyOCR. Optimized for real-time inference with TTA.",
-        tags: ["Computer Vision", "PyTorch", "EasyOCR", "CNN"],
-        image: "https://placehold.co/600x400/1a1a1a/ffffff?text=ALPR+System",
-        githubLink: "#",
-        demoLink: "#"
+        githubLink: "https://github.com/SpyBeast07/BLT_vs_traditional",
     },
     {
         title: "Netflix Clone",
-        description: "Scalable frontend architecture with reusable React components and effective state management. Fully responsive UI optimized for cross-device compatibility.",
+        description: "Designed a scalable frontend architecture with reusable React components and managed state effectively. Built a fully responsive UI, optimizing for cross-device compatibility.",
         tags: ["React.js", "Frontend", "UI/UX"],
         image: "https://placehold.co/600x400/1a1a1a/ffffff?text=Netflix+Clone",
-        githubLink: "#",
-        demoLink: "#"
+        githubLink: "https://github.com/SpyBeast07/netflix-clone-react",
+        demoLink: "https://netlix-clone-react.netlify.app/"
+    },
+    {
+        title: "ALPR System",
+        description: "End-to-end ALPR pipeline using a custom 5-layer CNN (71.48% IoU) and EasyOCR. Optimized for real-time inference with TTA. Trained on a curated dataset of ~9,600 images.",
+        tags: ["Computer Vision", "PyTorch", "EasyOCR", "CNN"],
+        image: "https://placehold.co/600x400/1a1a1a/ffffff?text=ALPR+System",
+        githubLink: "https://github.com/SpyBeast07/ALPR-CNN-EasyOCR",
+    },
+    {
+        title: "E-Waste Management Analysis",
+        description: "Analyzed 15+ datasets on e-waste from emerging and developed economies using Python and statistical methods. Proposed scalable, data-driven waste reduction strategies.",
+        tags: ["Python", "Statistical Analysis", "Research"],
+        image: "https://placehold.co/600x400/1a1a1a/ffffff?text=E-Waste+Management",
+        githubLink: "https://github.com/SpyBeast07/E-waste_research_paper_analysis",
+    },
+    {
+        title: "Malware Detection AI",
+        description: "Engineered a machine learning-based malware classifier achieving over 90% detection accuracy. Utilized Wireshark and Docker to analyze network packets for malicious patterns.",
+        tags: ["AI", "Machine Learning", "Wireshark", "Docker"],
+        image: "https://placehold.co/600x400/1a1a1a/ffffff?text=Malware+Detection",
+        githubLink: "https://github.com/SpyBeast07/ML-Based-Intrusion-Detection",
+    },
+    {
+        title: "Spardha Website",
+        description: "Collaborated to develop the official Spardha website. Built responsive UI with 5+ interactive features; deployed via Vercel with optimized load time under 2s.",
+        tags: ["HTML", "CSS", "JavaScript", "Frontend"],
+        image: "https://placehold.co/600x400/1a1a1a/ffffff?text=Spardha+Website",
+        githubLink: "https://github.com/SpyBeast07/Spardha_Website_25",
+        demoLink: "https://spardha-jklu.vercel.app"
     }
 ];
 

@@ -50,7 +50,7 @@ export const TimelineItem = ({ title, subtitle, date, description, tags, locatio
             )}
         </div>
         <p
-            className="text-sm leading-relaxed mb-4 max-w-xl"
+            className="text-sm leading-relaxed mb-4 max-w-xl whitespace-pre-line"
             style={{ color: "color-mix(in oklab, var(--foreground) 60%, transparent)" }}
         >
             {description}
@@ -97,7 +97,7 @@ export const TimelineItem = ({ title, subtitle, date, description, tags, locatio
                             </div>
                         )}
 
-                        <p className="text-sm leading-relaxed" style={{ color: "color-mix(in oklab, var(--foreground) 60%, transparent)" }}>
+                        <p className="text-sm leading-relaxed whitespace-pre-line" style={{ color: "color-mix(in oklab, var(--foreground) 60%, transparent)" }}>
                             {item.description}
                         </p>
                     </div>

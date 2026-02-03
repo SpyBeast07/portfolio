@@ -36,7 +36,7 @@ export default function AboutContent() {
                         <PageHeading
                             title={about.headline}
                             description={
-                                <div className="space-y-6">
+                                <div className="space-y-6 whitespace-pre-line">
                                     {about.long.map((paragraph, index) => (
                                         <p key={index} className={index === about.long.length - 1 ? "font-medium text-foreground/80" : ""}>
                                             {paragraph}
@@ -120,34 +120,6 @@ export default function AboutContent() {
                                 {...edu}
                             />
                         ))}
-                    </div>
-
-                    {/* Skills */}
-                    <div className="mb-24 lg:mb-32">
-                        <SectionHeading className="text-5xl mb-12">Skills</SectionHeading>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            {Object.entries(skills).map(([category, items]) => (
-                                <div key={category}>
-                                    <h5 className="text-xl font-medium mb-4 capitalize" style={{ color: "var(--foreground)" }}>
-                                        {category.replace(/([A-Z])/g, " $1").trim()}
-                                    </h5>
-                                    <div className="flex flex-wrap gap-2">
-                                        {items.map((skill) => (
-                                            <span
-                                                key={skill}
-                                                className="px-3 py-1 rounded-full text-sm border transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-800"
-                                                style={{
-                                                    color: "color-mix(in oklab, var(--foreground) 80%, transparent)",
-                                                    borderColor: "color-mix(in oklab, var(--foreground) 10%, transparent)",
-                                                }}
-                                            >
-                                                {skill}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
                     </div>
                 </div>
             </div>
