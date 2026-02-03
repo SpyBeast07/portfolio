@@ -42,14 +42,14 @@ export default function BlogsPage() {
                         <div
                             className="py-12 text-center rounded-lg border-dashed"
                             style={{
-                                borderColor: "color-mix(in oklab, var(--foreground) 10%, transparent)",
+                                borderColor: "color-mix(in oklab, var(--foreground) 30%, transparent)",
                                 backgroundColor: "color-mix(in oklab, var(--background) 85%, transparent)",
                                 borderWidth: "1px",
                             }}
                         >
                             <p
                                 className="font-playfair italic text-lg"
-                                style={{ color: "color-mix(in oklab, var(--foreground) 50%, transparent)" }}
+                                style={{ color: "color-mix(in oklab, var(--foreground) 70%, transparent)" }}
                             >
                                 Thoughtful essays coming soon...
                             </p>

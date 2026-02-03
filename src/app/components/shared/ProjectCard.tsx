@@ -17,7 +17,7 @@ export const ProjectCard = ({ title, description, tags, image, githubLink, demoL
         className="group relative rounded-3xl transition-all overflow-hidden flex flex-col md:flex-row-reverse h-full"
         style={{
             backgroundColor: "color-mix(in oklab, var(--background) 85%, transparent)",
-            border: "1px solid color-mix(in oklab, var(--foreground) 10%, transparent)",
+            border: "1px solid color-mix(in oklab, var(--foreground) 30%, transparent)",
         }}
     >
         {/* Project Image */}
@@ -53,7 +53,7 @@ export const ProjectCard = ({ title, description, tags, image, githubLink, demoL
                         key={tag}
                         className="px-2 py-0.5 text-xs rounded-full"
                         style={{
-                            color: "color-mix(in oklab, var(--foreground) 60%, transparent)",
+                            color: "color-mix(in oklab, var(--foreground) 70%, transparent)",
                             backgroundColor: "color-mix(in oklab, var(--foreground) 5%, transparent)",
                             border: "1px solid color-mix(in oklab, var(--foreground) 10%, transparent)"
                         }}

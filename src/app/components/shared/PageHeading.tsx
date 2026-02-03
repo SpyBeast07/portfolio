@@ -18,7 +18,7 @@ export default function PageHeading({ title, description }: PageHeadingProps) {
             </h1>
             <div
                 className="max-w-2xl text-lg font-outfit leading-relaxed"
-                style={{ color: "color-mix(in oklab, var(--foreground) 60%, transparent)" }}
+                style={{ color: "color-mix(in oklab, var(--foreground) 70%, transparent)" }}
             >
                 {description}
             </div>

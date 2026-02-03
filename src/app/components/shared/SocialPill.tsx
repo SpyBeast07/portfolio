@@ -22,7 +22,7 @@ export default function SocialPill() {
                 backgroundColor:
                     "color-mix(in oklab, var(--background) 70%, transparent)",
                 border:
-                    "1px solid color-mix(in oklab, var(--foreground) 10%, transparent)",
+                    "1px solid color-mix(in oklab, var(--foreground) 30%, transparent)",
             }}
         >
             {socialLinks.map(({ href, label }) => (

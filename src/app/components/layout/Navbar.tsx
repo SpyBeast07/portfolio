@@ -5,11 +5,8 @@ import { usePathname } from "next/navigation";
 
 import { useEffect, useState } from "react";
 import {
-    StackIcon,
-    HomeIcon,
-    UserIcon,
-    BriefcaseIcon,
-    BookOpenIcon
+
+
 } from "@/app/components/ui/Icons";
 
 import { navItems, sideNavItems } from "@/app/data";
@@ -77,6 +74,11 @@ export default function Navbar({ mode = "floating" }: { mode?: "floating" | "sid
                         key={item.name}
                         href={item.href}
                         onClick={(e) => {
+                            if (item.href === pathname) {
+                                e.preventDefault();
+                                window.scrollTo({ top: 0, behavior: "smooth" });
+                                return;
+                            }
                             if (item.href.startsWith('#')) {
                                 e.preventDefault();
                                 const id = item.href.replace('#', '');
@@ -86,7 +88,7 @@ export default function Navbar({ mode = "floating" }: { mode?: "floating" | "sid
                         }}
                         className="group flex items-center gap-5 text-base font-medium tracking-widest uppercase transition-colors duration-300"
                         style={{
-                            color: item.active ? "var(--foreground)" : "color-mix(in oklab, var(--foreground) 55%, transparent)",
+                            color: item.active ? "var(--foreground)" : "color-mix(in oklab, var(--foreground) 560%, transparent)",
                         }}
                         onMouseEnter={(e) => {
                             if (!item.active) e.currentTarget.style.color = "var(--foreground)";
@@ -123,6 +125,11 @@ export default function Navbar({ mode = "floating" }: { mode?: "floating" | "sid
                         key={item.name}
                         href={item.href}
                         onClick={(e) => {
+                            if (item.href === pathname) {
+                                e.preventDefault();
+                                window.scrollTo({ top: 0, behavior: "smooth" });
+                                return;
+                            }
                             if (item.href.startsWith('#')) {
                                 e.preventDefault();
                                 const id = item.href.replace('#', '');

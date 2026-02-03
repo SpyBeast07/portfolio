@@ -2,9 +2,27 @@
 
 import { GitHubCalendar } from "react-github-calendar";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 export default function GithubStats() {
     const { theme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (!mounted) {
+        return (
+            <div
+                className="mt-12 rounded-lg p-6 overflow-hidden min-h-[180px] animate-pulse"
+                style={{
+                    backgroundColor: "color-mix(in oklab, var(--background) 85%, transparent)",
+                    border: "1px solid color-mix(in oklab, var(--foreground) 30%, transparent)",
+                }}
+            />
+        );
+    }
 
     return (
         <div
@@ -13,7 +31,7 @@ export default function GithubStats() {
                 backgroundColor:
                     "color-mix(in oklab, var(--background) 85%, transparent)",
                 border:
-                    "1px solid color-mix(in oklab, var(--foreground) 10%, transparent)",
+                    "1px solid color-mix(in oklab, var(--foreground) 30%, transparent)",
             }}
         >
             <div className="flex justify-between items-center mb-6">
@@ -31,7 +49,7 @@ export default function GithubStats() {
                     rel="noopener noreferrer"
                     className="text-xs hover:underline"
                     style={{
-                        color: "color-mix(in oklab, var(--foreground) 40%, transparent)",
+                        color: "color-mix(in oklab, var(--foreground) 50%, transparent)",
                     }}
                 >
                     @SpyBeast07

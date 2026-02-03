@@ -20,7 +20,7 @@ export default function Footer() {
     return (
         <footer
             className="pb-24 text-sm leading-relaxed font-outfit max-w-md"
-            style={{ color: "color-mix(in oklab, var(--foreground) 50%, transparent)" }}
+            style={{ color: "color-mix(in oklab, var(--foreground) 70%, transparent)" }}
         >
             <div className="flex gap-6 mb-8 md:hidden">
                 {socialLinks.map(({ href, label }) => (

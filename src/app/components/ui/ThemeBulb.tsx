@@ -4,11 +4,14 @@ import React, { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 
 export default function ThemeBulb() {
-    const { theme, setTheme, resolvedTheme } = useTheme();
+    const { setTheme, resolvedTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 
     // After mounting, we have access to the theme
-    useEffect(() => setMounted(true), []);
+    useEffect(() => {
+        const timer = setTimeout(() => setMounted(true), 0);
+        return () => clearTimeout(timer);
+    }, []);
 
     if (!mounted) {
         return null; // or a placeholder to avoid hydration mismatch

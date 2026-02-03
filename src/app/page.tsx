@@ -42,6 +42,7 @@ export default function Home() {
       <div className="hidden md:block">
         <VerticalEmail />
       </div>
+      {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
       <motion.div style={{ opacity: heroOpacity, pointerEvents: pointerEventsHero as any }} className="block md:hidden">
         <VerticalEmail />
       </motion.div>
@@ -105,6 +106,7 @@ export default function Home() {
       {/* --- Floating Elements --- */}
 
       {/* Navbar */}
+      {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
       <motion.div style={{ opacity: heroOpacity, pointerEvents: pointerEventsHero as any }} className="hidden md:block fixed top-0 left-0 w-full h-full z-30 pointer-events-none">
         <div className="absolute top-8 left-1/2 -translate-x-1/2 pointer-events-auto">
           <Navbar mode="floating" />
@@ -131,6 +133,7 @@ export default function Home() {
         <SocialPill />
       </div>
       <motion.div
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         style={{ opacity: logoOpacity, pointerEvents: pointerEventsHero as any }}
         className="fixed top-[82%] left-1/2 -translate-x-1/2 z-[60] md:hidden pointer-events-auto origin-center scale-85"
       >

@@ -233,7 +233,7 @@ export const projects: Project[] = [
         tags: ["AI", "Machine Learning", "Wireshark", "Docker"],
         image: "https://placehold.co/600x400/1a1a1a/ffffff?text=Malware+Detection",
         githubLink: "https://github.com/SpyBeast07/ML-Based-Intrusion-Detection",
-        category: "Artificial Intelligence",
+        category: "Research",
     },
     {
         title: "Spardha Website",

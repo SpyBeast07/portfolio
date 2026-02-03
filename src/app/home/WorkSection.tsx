@@ -19,7 +19,7 @@ export default function Work() {
                     <span
                         className="text-2xl font-normal font-sans"
                         style={{
-                            color: "color-mix(in oklab, var(--foreground) 55%, transparent)",
+                            color: "color-mix(in oklab, var(--foreground) 60%, transparent)",
                         }}
                     >
                         projects and counting...

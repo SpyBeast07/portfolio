@@ -41,7 +41,7 @@ export default function WorkContent() {
                                     <span
                                         className="text-2xl font-normal font-sans"
                                         style={{
-                                            color: "color-mix(in oklab, var(--foreground) 55%, transparent)",
+                                            color: "color-mix(in oklab, var(--foreground) 60%, transparent)",
                                         }}
                                     >
                                         projects and counting...
@@ -60,7 +60,7 @@ export default function WorkContent() {
                             onClick={() => setActiveCategory(category)}
                             className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 border ${activeCategory === category
                                 ? "bg-foreground text-background border-foreground"
-                                : "bg-transparent text-foreground/60 border-foreground/10 hover:border-foreground/30 hover:text-foreground"
+                                : "bg-transparent text-foreground/70 border-foreground/10 hover:border-foreground/30 hover:text-foreground"
                                 }`}
                         >
                             {category}

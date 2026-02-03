@@ -20,7 +20,7 @@ export const TimelineItem = ({ title, subtitle, date, description, tags, locatio
             </h3>
             <span
                 className="text-xs font-mono uppercase tracking-widest"
-                style={{ color: "color-mix(in oklab, var(--foreground) 50%, transparent)" }}
+                style={{ color: "color-mix(in oklab, var(--foreground) 60%, transparent)" }}
             >
                 {date}
             </span>
@@ -28,7 +28,7 @@ export const TimelineItem = ({ title, subtitle, date, description, tags, locatio
         <div className="text-sm font-medium text-purple-400 mb-1">{subtitle}</div>
 
         {/* Meta Info: Location, Type, CGPA */}
-        <div className="flex flex-wrap gap-4 mb-3 text-xs" style={{ color: "color-mix(in oklab, var(--foreground) 50%, transparent)" }}>
+        <div className="flex flex-wrap gap-4 mb-3 text-xs" style={{ color: "color-mix(in oklab, var(--foreground) 60%, transparent)" }}>
             {location && (
                 <div className="flex items-center gap-1">
                     <MapPinIcon width={14} height={14} />
@@ -43,13 +43,13 @@ export const TimelineItem = ({ title, subtitle, date, description, tags, locatio
             )}
             {cgpa && (
                 <div className="flex items-center gap-1 font-mono">
-                    <span className="font-bold">CGPA:</span> {cgpa}
+                    <span className="font-bold">GPA:</span> {cgpa}
                 </div>
             )}
         </div>
         <p
             className="text-base leading-relaxed mb-4 max-w-xl whitespace-pre-line"
-            style={{ color: "color-mix(in oklab, var(--foreground) 60%, transparent)" }}
+            style={{ color: "color-mix(in oklab, var(--foreground) 70%, transparent)" }}
         >
             {description}
         </p>
@@ -82,7 +82,7 @@ export const TimelineItem = ({ title, subtitle, date, description, tags, locatio
                             <h4 className="text-md font-bold font-playfair" style={{ color: "var(--foreground)" }}>
                                 {item.title}
                             </h4>
-                            <span className="text-xs font-mono uppercase tracking-widest" style={{ color: "color-mix(in oklab, var(--foreground) 50%, transparent)" }}>
+                            <span className="text-xs font-mono uppercase tracking-widest" style={{ color: "color-mix(in oklab, var(--foreground) 60%, transparent)" }}>
                                 {item.date}
                             </span>
                         </div>
@@ -90,12 +90,12 @@ export const TimelineItem = ({ title, subtitle, date, description, tags, locatio
                         <div className="text-sm font-medium text-purple-400 mb-2">{item.subtitle}</div>
 
                         {item.cgpa && (
-                            <div className="text-xs font-mono mb-2" style={{ color: "color-mix(in oklab, var(--foreground) 50%, transparent)" }}>
-                                <span className="font-bold">CGPA:</span> {item.cgpa}
+                            <div className="text-xs font-mono mb-2" style={{ color: "color-mix(in oklab, var(--foreground) 60%, transparent)" }}>
+                                <span className="font-bold">GPA:</span> {item.cgpa}
                             </div>
                         )}
 
-                        <p className="text-base leading-relaxed whitespace-pre-line" style={{ color: "color-mix(in oklab, var(--foreground) 60%, transparent)" }}>
+                        <p className="text-base leading-relaxed whitespace-pre-line" style={{ color: "color-mix(in oklab, var(--foreground) 70%, transparent)" }}>
                             {item.description}
                         </p>
                     </div>
