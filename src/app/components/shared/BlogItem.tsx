@@ -3,7 +3,17 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export const BlogItem = ({ title, excerpt, date, slug, readTime, image, showImage = true }: { title: string, excerpt: string, date: string, slug: string, readTime: string, image?: string, showImage?: boolean }) => (
+interface BlogItemProps {
+    title: string;
+    excerpt: string;
+    date: string;
+    slug: string;
+    readTime: string;
+    image?: string;
+    showImage?: boolean;
+}
+
+export const BlogItem = ({ title, excerpt, date, slug, readTime, image, showImage = true }: BlogItemProps) => (
     <Link
         href={slug}
         className="group flex flex-col md:flex-row-reverse gap-6 mb-12 items-center cursor-pointer p-4 rounded-xl transition-colors -mx-4"
@@ -15,7 +25,7 @@ export const BlogItem = ({ title, excerpt, date, slug, readTime, image, showImag
         }}
     >
         {/* Blog Image */}
-        {showImage && (
+        {showImage && image && (
             <div
                 className="w-full md:w-48 h-32 relative flex-shrink-0 overflow-hidden rounded-lg"
                 style={{
@@ -24,7 +34,7 @@ export const BlogItem = ({ title, excerpt, date, slug, readTime, image, showImag
                 }}
             >
                 <Image
-                    src={image || "https://placehold.co/600x400/222/FFF?text=Blog"}
+                    src={image}
                     alt={title}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"

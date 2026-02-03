@@ -2,13 +2,11 @@
 
 import { useState } from "react";
 import PageHeading from "@/app/components/shared/PageHeading";
-import { pageHeadings, projects, skills } from "@/app/data";
+import { pageHeadings, projects, skills, projectCategories } from "@/app/data";
 import Navbar from "@/app/components/layout/Navbar";
 import { ProjectCard } from "@/app/components/shared/ProjectCard";
 import AnimatedCounter from "@/app/components/ui/AnimatedCounter";
 import GithubStats from "@/app/components/shared/GithubStats";
-
-const categories = ["All", "Artificial Intelligence", "Web Development", "Research"];
 
 export default function WorkContent() {
     const [activeCategory, setActiveCategory] = useState("All");
@@ -53,12 +51,12 @@ export default function WorkContent() {
                 </div>
 
                 {/* Category Filter */}
-                <div className="flex flex-wrap gap-4 mb-12">
-                    {categories.map((category) => (
+                <div className="flex overflow-x-auto pb-4 gap-4 mb-12 scrollbar-none snap-x snap-mandatory touch-pan-x overscroll-x-contain">
+                    {projectCategories.map((category) => (
                         <button
                             key={category}
                             onClick={() => setActiveCategory(category)}
-                            className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 border ${activeCategory === category
+                            className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 border flex-shrink-0 snap-center ${activeCategory === category
                                 ? "bg-foreground text-background border-foreground"
                                 : "bg-transparent text-foreground/70 border-foreground/10 hover:border-foreground/30 hover:text-foreground"
                                 }`}

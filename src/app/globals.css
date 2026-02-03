@@ -93,3 +93,13 @@ html {
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
+
+/* Utility to completely hide scrollbar */
+.scrollbar-none {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
