@@ -1,17 +1,17 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import VerticalEmail from "@/components/VerticalEmail";
-import Navbar from "@/components/Navbar";
-import About from "@/components/About";
-import Work from "@/components/Work";
-import Blogs from "@/components/Blogs";
-import Footer from "@/components/Footer";
-import SocialPill from "@/components/SocialPill";
-import HeroTitle from "@/components/HeroTitle";
-import HeroLogo from "@/components/HeroLogo";
-import { role } from "@/data";
-import { StackIcon } from "@/components/ui/Icons";
+import VerticalEmail from "@/app/components/layout/VerticalEmail";
+import Navbar from "@/app/components/layout/Navbar";
+import AboutSection from "@/app/home/AboutSection";
+import WorkSection from "@/app/home/WorkSection";
+import BlogsSection from "@/app/home/BlogsSection";
+import Footer from "@/app/components/layout/Footer";
+import SocialPill from "@/app/components/shared/SocialPill";
+import HeroTitle from "@/app/home/HeroTitle";
+import HeroLogo from "@/app/home/HeroLogo";
+import { role } from "@/app/data";
+import { StackIcon } from "@/app/components/ui/Icons";
 
 export default function Home() {
   const { scrollY } = useScroll();
@@ -141,9 +141,9 @@ export default function Home() {
       <div className="relative w-full z-20">
         <div style={{ height: "100vh" }} />
         <main className="md:w-[60%] md:ml-[40%] px-6 md:px-16 pt-24 pb-24">
-          <About />
-          <Work />
-          <Blogs />
+          <AboutSection />
+          <WorkSection />
+          <BlogsSection />
           <Footer />
         </main>
       </div>

@@ -40,17 +40,6 @@ export const role = {
 
 export const email = "kggupta.work@gmail.com";
 
-export const pageHeadings = {
-    work: {
-        title: "All Projects",
-        description: "A collection of my work, ranging from AI research to full-stack applications.",
-    },
-    blogs: {
-        title: "Writing",
-        description: "Thoughts on software engineering, design systems, and the future of AI.",
-    },
-};
-
 export const resume = {
     url: "/Kushagra_Gupta_updated_Resume.pdf",
     filename: "Kushagra_Gupta_Resume.pdf",
@@ -145,6 +134,20 @@ export const education: Education[] = [
             },
         ]
     },
+    {
+        title: "Class 12th",
+        subtitle: "S G International School",
+        date: "2021",
+        cgpa: "89%",
+        description: "",
+    },
+    {
+        title: "Class 10th",
+        subtitle: "Children's Academy",
+        date: "2019",
+        cgpa: "72%",
+        description: "",
+    },
 ];
 
 export const skills = {
@@ -163,6 +166,7 @@ export interface Project {
     image?: string;
     githubLink: string;
     demoLink?: string;
+    category: "Artificial Intelligence" | "Web Development" | "Research";
 }
 
 export const projects: Project[] = [
@@ -172,6 +176,7 @@ export const projects: Project[] = [
         tags: ["RAG", "LangChain", "Elasticsearch", "Docker", "FastAPI"],
         image: "https://placehold.co/600x400/1a1a1a/ffffff?text=SME+AI+Agent",
         githubLink: "https://github.com/SpyBeast07/sme-rag-agent",
+        category: "Artificial Intelligence",
     },
     {
         title: "Legal Redline Sandbox",
@@ -179,6 +184,7 @@ export const projects: Project[] = [
         tags: ["Python", "FastAPI", "React.js", "Google Cloud", "Gemini API"],
         image: "https://placehold.co/600x400/1a1a1a/ffffff?text=Legal+Redline",
         githubLink: "https://github.com/IshitaAgarwal05/Legal_Redline_Sandbox",
+        category: "Artificial Intelligence",
     },
     {
         title: "Multilingual Language Model",
@@ -186,6 +192,7 @@ export const projects: Project[] = [
         tags: ["PyTorch", "LoRA", "Multilingual", "LLMs"],
         image: "https://placehold.co/600x400/1a1a1a/ffffff?text=Multilingual+LLM",
         githubLink: "https://github.com/SpyBeast07/Multilingual-LM",
+        category: "Artificial Intelligence",
     },
     {
         title: "Byte-Latent Transformer",
@@ -193,6 +200,7 @@ export const projects: Project[] = [
         tags: ["PyTorch", "NLP", "Transformers", "Research"],
         image: "https://placehold.co/600x400/1a1a1a/ffffff?text=Byte-Latent+Transformer",
         githubLink: "https://github.com/SpyBeast07/BLT_vs_traditional",
+        category: "Research",
     },
     {
         title: "Netflix Clone",
@@ -200,7 +208,8 @@ export const projects: Project[] = [
         tags: ["React.js", "Frontend", "UI/UX"],
         image: "https://placehold.co/600x400/1a1a1a/ffffff?text=Netflix+Clone",
         githubLink: "https://github.com/SpyBeast07/netflix-clone-react",
-        demoLink: "https://netlix-clone-react.netlify.app/"
+        demoLink: "https://netlix-clone-react.netlify.app/",
+        category: "Web Development",
     },
     {
         title: "ALPR System",
@@ -208,6 +217,7 @@ export const projects: Project[] = [
         tags: ["Computer Vision", "PyTorch", "EasyOCR", "CNN"],
         image: "https://placehold.co/600x400/1a1a1a/ffffff?text=ALPR+System",
         githubLink: "https://github.com/SpyBeast07/ALPR-CNN-EasyOCR",
+        category: "Artificial Intelligence",
     },
     {
         title: "E-Waste Management Analysis",
@@ -215,6 +225,7 @@ export const projects: Project[] = [
         tags: ["Python", "Statistical Analysis", "Research"],
         image: "https://placehold.co/600x400/1a1a1a/ffffff?text=E-Waste+Management",
         githubLink: "https://github.com/SpyBeast07/E-waste_research_paper_analysis",
+        category: "Research",
     },
     {
         title: "Malware Detection AI",
@@ -222,6 +233,7 @@ export const projects: Project[] = [
         tags: ["AI", "Machine Learning", "Wireshark", "Docker"],
         image: "https://placehold.co/600x400/1a1a1a/ffffff?text=Malware+Detection",
         githubLink: "https://github.com/SpyBeast07/ML-Based-Intrusion-Detection",
+        category: "Artificial Intelligence",
     },
     {
         title: "Spardha Website",
@@ -229,9 +241,21 @@ export const projects: Project[] = [
         tags: ["HTML", "CSS", "JavaScript", "Frontend"],
         image: "https://placehold.co/600x400/1a1a1a/ffffff?text=Spardha+Website",
         githubLink: "https://github.com/SpyBeast07/Spardha_Website_25",
-        demoLink: "https://spardha-jklu.vercel.app"
+        demoLink: "https://spardha-jklu.vercel.app",
+        category: "Web Development",
     }
 ];
+
+export const pageHeadings = {
+    work: {
+        title: "Projects",
+        description: `${projects.length}+ projects built across web, AI, and tooling`,
+    },
+    blogs: {
+        title: "Writing",
+        description: "Thoughts on software engineering, design systems, and the future of AI.",
+    },
+};
 
 export interface Blog {
     title: string;

@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 
-import { email } from "@/data";
+import { email } from "@/app/data";
 
 export default function VerticalEmail() {
     const [copied, setCopied] = useState(false);

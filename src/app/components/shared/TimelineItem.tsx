@@ -1,9 +1,7 @@
 "use client";
 
-
-import { BriefcaseIcon, MapPinIcon } from "./ui/Icons";
-
-import { Education } from "@/data";
+import { BriefcaseIcon, MapPinIcon } from "@/app/components/ui/Icons";
+import { Education } from "@/app/data";
 
 export const TimelineItem = ({ title, subtitle, date, description, tags, location, type, cgpa, related }: { title: string, subtitle: string, date: string, description: string, tags?: string[], location?: string, type?: string, cgpa?: string, related?: Education[] }) => (
     <div
@@ -50,7 +48,7 @@ export const TimelineItem = ({ title, subtitle, date, description, tags, locatio
             )}
         </div>
         <p
-            className="text-sm leading-relaxed mb-4 max-w-xl whitespace-pre-line"
+            className="text-base leading-relaxed mb-4 max-w-xl whitespace-pre-line"
             style={{ color: "color-mix(in oklab, var(--foreground) 60%, transparent)" }}
         >
             {description}
@@ -97,7 +95,7 @@ export const TimelineItem = ({ title, subtitle, date, description, tags, locatio
                             </div>
                         )}
 
-                        <p className="text-sm leading-relaxed whitespace-pre-line" style={{ color: "color-mix(in oklab, var(--foreground) 60%, transparent)" }}>
+                        <p className="text-base leading-relaxed whitespace-pre-line" style={{ color: "color-mix(in oklab, var(--foreground) 60%, transparent)" }}>
                             {item.description}
                         </p>
                     </div>

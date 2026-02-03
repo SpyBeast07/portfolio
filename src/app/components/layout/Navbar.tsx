@@ -4,8 +4,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { useEffect, useState } from "react";
+import {
+    StackIcon,
+    HomeIcon,
+    UserIcon,
+    BriefcaseIcon,
+    BookOpenIcon
+} from "@/app/components/ui/Icons";
 
-import { navItems, sideNavItems } from "@/data";
+import { navItems, sideNavItems } from "@/app/data";
 
 export default function Navbar({ mode = "floating" }: { mode?: "floating" | "sidebar" }) {
     const pathname = usePathname();

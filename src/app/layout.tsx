@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Outfit, Playfair_Display, Dancing_Script, Great_Vibes, Sacramento } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import ThemeBulb from "@/components/ThemeBulb";
-import SmoothScroll from "@/components/SmoothScroll";
+import { ThemeProvider } from "@/app/components/utils/theme-provider";
+import ThemeBulb from "@/app/components/ui/ThemeBulb";
+import SmoothScroll from "@/app/components/utils/SmoothScroll";
 
 const outfit = Outfit({
   subsets: ["latin"],

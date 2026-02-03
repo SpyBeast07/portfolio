@@ -1,6 +1,5 @@
-
-import { socialLinks } from "@/data";
-import { EmailIcon, GithubIcon, LinkedinIcon } from "./ui/Icons";
+import { socialLinks } from "@/app/data";
+import { EmailIcon, GithubIcon, LinkedinIcon } from "@/app/components/ui/Icons";
 
 export default function SocialPill() {
     const getIcon = (label: string) => {

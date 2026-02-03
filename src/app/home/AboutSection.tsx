@@ -1,7 +1,6 @@
-import Link from "next/link";
-import SectionHeading from "./ui/SectionHeading";
-import CustomButton from "./ui/CustomButton";
-import { about } from "@/data";
+import SectionHeading from "@/app/components/shared/SectionHeading";
+import CustomButton from "@/app/components/ui/CustomButton";
+import { about } from "@/app/data";
 
 export default function About() {
     return (

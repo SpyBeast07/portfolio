@@ -1,8 +1,8 @@
 "use client";
 
-import Navbar from "@/components/Navbar";
-import { resume } from "@/data";
-import { DownloadIcon } from "@/components/ui/Icons";
+import Navbar from "@/app/components/layout/Navbar";
+import { resume } from "@/app/data";
+import { DownloadIcon } from "@/app/components/ui/Icons";
 
 export default function ResumePage() {
     return (

@@ -1,4 +1,4 @@
-import { navItems } from "@/data";
+import { navItems } from "@/app/data";
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {

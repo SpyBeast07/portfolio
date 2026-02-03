@@ -1,9 +1,7 @@
 "use client";
 
-
 import Image from "next/image";
-
-import { ExternalLinkIcon, GithubIcon } from "./ui/Icons";
+import { ExternalLinkIcon, GithubIcon } from "@/app/components/ui/Icons";
 
 interface ProjectCardProps {
     title: string;

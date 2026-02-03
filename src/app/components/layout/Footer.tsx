@@ -1,8 +1,7 @@
-
 "use client";
 
-import { socialLinks } from "@/data";
-import { EmailIcon, GithubIcon, LinkedinIcon } from "./ui/Icons";
+import { socialLinks } from "@/app/data";
+import { EmailIcon, GithubIcon, LinkedinIcon } from "@/app/components/ui/Icons";
 
 export default function Footer() {
     const getIcon = (label: string) => {

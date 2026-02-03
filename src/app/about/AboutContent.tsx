@@ -1,11 +1,11 @@
 "use client";
 
-import Navbar from "@/components/Navbar";
-import { TimelineItem } from "@/components/TimelineItem";
-import { about, education, experiences, resume, skills, socialLinks } from "@/data";
-import PageHeading from "@/components/ui/PageHeading";
-import SectionHeading from "@/components/ui/SectionHeading";
-import { DownloadIcon, EmailIcon, FileTextIcon, GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
+import Navbar from "@/app/components/layout/Navbar";
+import { TimelineItem } from "@/app/components/shared/TimelineItem";
+import { about, education, experiences, socialLinks } from "@/app/data";
+import PageHeading from "@/app/components/shared/PageHeading";
+import SectionHeading from "@/app/components/shared/SectionHeading";
+import { EmailIcon, FileTextIcon, GithubIcon, LinkedinIcon } from "@/app/components/ui/Icons";
 
 export default function AboutContent() {
     const getIcon = (label: string) => {
@@ -102,7 +102,7 @@ export default function AboutContent() {
                 <div className="space-y-4">
                     {/* Experience */}
                     <div className="mb-24 lg:mb-32">
-                        <SectionHeading className="text-5xl mb-12">Experience</SectionHeading>
+                        <SectionHeading className="text-5xl mb-12">Where I Worked</SectionHeading>
                         {experiences.map((exp) => (
                             <TimelineItem
                                 key={exp.title}
@@ -113,7 +113,7 @@ export default function AboutContent() {
 
                     {/* Education */}
                     <div className="mb-24 lg:mb-32">
-                        <SectionHeading className="text-5xl mb-12">Education</SectionHeading>
+                        <SectionHeading className="text-5xl mb-12">Where I Studied</SectionHeading>
                         {education.map((edu) => (
                             <TimelineItem
                                 key={edu.title}

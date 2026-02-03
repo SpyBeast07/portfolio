@@ -1,9 +1,7 @@
-import Link from "next/link";
-
-import { BlogItem } from "../components/BlogItem";
-import { blogs } from "@/data";
-import SectionHeading from "./ui/SectionHeading";
-import CustomButton from "./ui/CustomButton";
+import { BlogItem } from "@/app/components/shared/BlogItem";
+import { blogs } from "@/app/data";
+import SectionHeading from "@/app/components/shared/SectionHeading";
+import CustomButton from "@/app/components/ui/CustomButton";
 
 export default function Blogs() {
     return (

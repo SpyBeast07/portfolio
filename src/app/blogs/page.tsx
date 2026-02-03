@@ -1,7 +1,7 @@
-import Navbar from "@/components/Navbar";
-import { BlogItem } from "@/components/BlogItem";
-import { blogs, pageHeadings } from "@/data";
-import PageHeading from "@/components/ui/PageHeading";
+import Navbar from "@/app/components/layout/Navbar";
+import { BlogItem } from "@/app/components/shared/BlogItem";
+import { blogs, pageHeadings } from "@/app/data";
+import PageHeading from "@/app/components/shared/PageHeading";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

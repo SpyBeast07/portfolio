@@ -1,8 +1,7 @@
-import Link from "next/link";
-import { ProjectCard } from "./ProjectCard";
-import { projects } from "@/data";
-import SectionHeading from "./ui/SectionHeading";
-import CustomButton from "./ui/CustomButton";
+import { ProjectCard } from "@/app/components/shared/ProjectCard";
+import { projects } from "@/app/data";
+import SectionHeading from "@/app/components/shared/SectionHeading";
+import CustomButton from "@/app/components/ui/CustomButton";
 
 export default function Work() {
     return (
