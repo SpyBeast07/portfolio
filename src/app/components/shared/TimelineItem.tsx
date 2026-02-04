@@ -2,9 +2,56 @@
 
 import { BriefcaseIcon, MapPinIcon } from "@/app/components/ui/Icons";
 import { Education } from "@/app/data";
+import { useState } from "react";
+
+interface TimelineItemProps {
+    title: string;
+    subtitle: string;
+    date: string;
+    description: string;
+    tags?: string[];
+    location?: string;
+    type?: string;
+    cgpa?: string;
+    related?: Education[];
+    logo?: string;
+    story?: string;
+}
+
+const ExpandableStory = ({ description, story, className }: { description: string, story?: string, className?: string }) => {
+    const [isExpanded, setIsExpanded] = useState(false);
+
+    return (
+        <div className="flex flex-col items-start mb-4">
+            <div
+                className={className}
+                style={{ color: "color-mix(in oklab, var(--foreground) 70%, transparent)" }}
+                dangerouslySetInnerHTML={{ __html: description }}
+            />
+            {story && (
+                <>
+                    <button
+                        onClick={() => setIsExpanded(!isExpanded)}
+                        className="text-xs font-bold uppercase tracking-widest flex items-center gap-2 transition-colors text-rose-500 hover:text-rose-600 dark:text-rose-400 dark:hover:text-rose-300 mb-2 mt-2"
+
+                    >
+                        Read story <span className={`transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`}>↓</span>
+                    </button>
+                    {isExpanded && (
+                        <div
+                            className={className}
+                            style={{ color: "color-mix(in oklab, var(--foreground) 70%, transparent)" }}
+                            dangerouslySetInnerHTML={{ __html: story }}
+                        />
+                    )}
+                </>
+            )}
+        </div>
+    );
+};
 
 // eslint-disable-next-line @next/next/no-img-element
-export const TimelineItem = ({ title, subtitle, date, description, tags, location, type, cgpa, related, logo }: { title: string, subtitle: string, date: string, description: string, tags?: string[], location?: string, type?: string, cgpa?: string, related?: Education[], logo?: string }) => (
+export const TimelineItem = ({ title, subtitle, date, description, tags, location, type, cgpa, related, logo, story }: TimelineItemProps) => (
     <div
         className="relative pl-8 pb-12 last:pb-0"
         style={{
@@ -65,12 +112,13 @@ export const TimelineItem = ({ title, subtitle, date, description, tags, locatio
                 </div>
             )}
         </div>
-        <p
-            className="text-base leading-relaxed mb-4 max-w-xl whitespace-pre-line"
-            style={{ color: "color-mix(in oklab, var(--foreground) 70%, transparent)" }}
-        >
-            {description}
-        </p>
+
+        <ExpandableStory
+            description={description}
+            story={story}
+            className="text-base leading-relaxed max-w-2xl whitespace-pre-line"
+        />
+
         {tags && (
             <div className="flex flex-wrap gap-2">
                 {tags.map(tag => (
@@ -126,9 +174,11 @@ export const TimelineItem = ({ title, subtitle, date, description, tags, locatio
                             </div>
                         )}
 
-                        <p className="text-base leading-relaxed whitespace-pre-line" style={{ color: "color-mix(in oklab, var(--foreground) 70%, transparent)" }}>
-                            {item.description}
-                        </p>
+                        <ExpandableStory
+                            description={item.description}
+                            story={item.story}
+                            className="text-base max-w-3xl leading-relaxed whitespace-pre-line"
+                        />
                     </div>
                 ))}
             </div>
