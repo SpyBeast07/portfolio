@@ -10,7 +10,7 @@ import Footer from "@/app/components/layout/Footer";
 import SocialPill from "@/app/components/shared/SocialPill";
 import HeroTitle from "@/app/home/HeroTitle";
 import HeroLogo from "@/app/home/HeroLogo";
-import { role } from "@/app/data";
+import { role, quote } from "@/app/data";
 import { StackIcon } from "@/app/components/ui/Icons";
 
 export default function Home() {
@@ -144,6 +144,17 @@ export default function Home() {
       <div className="relative w-full z-20">
         <div style={{ height: "100vh" }} />
         <main className="md:w-[60%] md:ml-[40%] px-6 md:px-16 pt-24 pb-24">
+
+          {/* Quote Section */}
+          <section className="mb-24 lg:mb-40 pt-10">
+            <h2
+              className="text-2xl md:text-3xl font-bold font-playfair leading-snug"
+              style={{ color: "var(--foreground)" }}
+            >
+              “{quote}”
+            </h2>
+          </section>
+
           <AboutSection />
           <WorkSection />
           <BlogsSection />

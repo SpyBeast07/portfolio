@@ -40,6 +40,8 @@ export const role = {
 
 export const email = "kggupta.work@gmail.com";
 
+export const quote = "Experiences are what that makes you, You.";
+
 export const resume = {
     url: "/Kushagra_Gupta_updated_Resume.pdf",
     filename: "Kushagra_Gupta_Resume.pdf",
