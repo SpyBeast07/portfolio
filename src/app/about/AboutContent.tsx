@@ -7,6 +7,8 @@ import PageHeading from "@/app/components/shared/PageHeading";
 import SectionHeading from "@/app/components/shared/SectionHeading";
 import { EmailIcon, FileTextIcon, GithubIcon, LinkedinIcon } from "@/app/components/ui/Icons";
 
+import Image from "next/image";
+
 export default function AboutContent() {
     const getIcon = (label: string) => {
         switch (label) {
@@ -33,93 +35,123 @@ export default function AboutContent() {
                         <Navbar mode="floating" />
                     </div>
                     <div className="mt-24">
-                        <PageHeading
-                            title={about.headline}
-                            description={
-                                <div className="space-y-6 whitespace-pre-line">
-                                    {about.long.map((paragraph, index) => (
-                                        <p key={index} className={index === about.long.length - 1 ? "font-medium text-foreground/80" : ""}>
-                                            {paragraph}
-                                        </p>
-                                    ))}
-                                </div>
-                            }
-                        />
-                    </div>
-                </div>
+                        <h1
+                            className="font-playfair text-5xl font-bold mb-12"
+                            style={{ color: "var(--foreground)" }}
+                        >
+                            {about.headline}
+                        </h1>
 
-                {/* Social Icons */}
-                <div className="flex gap-6 mb-12">
-                    {socialLinks.map(({ href, label }) => (
+                        <div
+                            className="space-y-6 whitespace-pre-line text-lg font-outfit leading-relaxed block"
+                            style={{ color: "color-mix(in oklab, var(--foreground) 70%, transparent)" }}
+                        >
+                            {/* Photo */}
+                            {about.photo && (
+                                <div className="w-full flex justify-center mb-8 md:block md:w-auto md:float-right md:ml-12 md:mb-4 md:mt-2">
+                                    <div className="relative w-48 h-48 md:w-64 md:h-64">
+                                        <Image
+                                            src={about.photo}
+                                            alt="Profile Photo"
+                                            fill
+                                            className="object-cover rounded-2xl shadow-sm transition-all duration-500"
+                                            style={{
+                                                border: "1px solid color-mix(in oklab, var(--foreground) 10%, transparent)"
+                                            }}
+                                        />
+                                        {/* Offset Background decoration */}
+                                        <div
+                                            className="absolute inset-0 rounded-2xl -z-10 translate-x-3 translate-y-3"
+                                            style={{
+                                                backgroundColor: "color-mix(in oklab, var(--foreground) 5%, transparent)",
+                                            }}
+                                        />
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Text Content */}
+                            {about.long.map((paragraph, index) => (
+                                <p key={index} className={index === about.long.length - 1 ? "font-medium text-foreground/80" : ""}>
+                                    {paragraph}
+                                </p>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Social Icons */}
+                    <div className="flex gap-6 mb-12">
+                        {socialLinks.map(({ href, label }) => (
+                            <a
+                                key={label}
+                                href={href}
+                                aria-label={label}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="transition-transform duration-200"
+                                style={{
+                                    color: "color-mix(in oklab, var(--foreground) 60%, transparent)",
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.color = "var(--foreground)";
+                                    e.currentTarget.style.transform = "scale(1.1)";
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.color =
+                                        "color-mix(in oklab, var(--foreground) 60%, transparent)";
+                                    e.currentTarget.style.transform = "scale(1)";
+                                }}
+                            >
+                                {getIcon(label)}
+                            </a>
+                        ))}
+                    </div>
+
+                    {/* Resume Button */}
+                    <div className="mb-24 lg:mb-32">
                         <a
-                            key={label}
-                            href={href}
-                            aria-label={label}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="transition-transform duration-200"
+                            href="/resume"
+                            className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-sm transition-transform"
                             style={{
-                                color: "color-mix(in oklab, var(--foreground) 60%, transparent)",
+                                color: "var(--background)",
+                                backgroundColor: "var(--foreground)",
                             }}
                             onMouseEnter={(e) => {
-                                e.currentTarget.style.color = "var(--foreground)";
-                                e.currentTarget.style.transform = "scale(1.1)";
+                                e.currentTarget.style.opacity = "0.9";
+                                e.currentTarget.style.transform = "scale(1.05)";
                             }}
                             onMouseLeave={(e) => {
-                                e.currentTarget.style.color =
-                                    "color-mix(in oklab, var(--foreground) 60%, transparent)";
+                                e.currentTarget.style.opacity = "1";
                                 e.currentTarget.style.transform = "scale(1)";
                             }}
                         >
-                            {getIcon(label)}
+                            <FileTextIcon width={16} height={16} />
+                            View Resume
                         </a>
-                    ))}
-                </div>
-
-                {/* Resume Button */}
-                <div className="mb-24 lg:mb-32">
-                    <a
-                        href="/resume"
-                        className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-sm transition-transform"
-                        style={{
-                            color: "var(--background)",
-                            backgroundColor: "var(--foreground)",
-                        }}
-                        onMouseEnter={(e) => {
-                            e.currentTarget.style.opacity = "0.9";
-                            e.currentTarget.style.transform = "scale(1.05)";
-                        }}
-                        onMouseLeave={(e) => {
-                            e.currentTarget.style.opacity = "1";
-                            e.currentTarget.style.transform = "scale(1)";
-                        }}
-                    >
-                        <FileTextIcon width={16} height={16} />
-                        View Resume
-                    </a>
-                </div>
-
-                <div className="space-y-4">
-                    {/* Experience */}
-                    <div className="mb-24 lg:mb-32">
-                        <SectionHeading className="text-5xl mb-12">Where I Worked</SectionHeading>
-                        {experiences.map((exp) => (
-                            <TimelineItem
-                                key={exp.title}
-                                {...exp}
-                            />
-                        ))}
                     </div>
 
-                    {/* Education */}
-                    <div className="mb-24 lg:mb-32">
-                        <SectionHeading className="text-5xl mb-12">Where I Studied</SectionHeading>
-                        {education.map((edu) => (
-                            <TimelineItem
-                                key={edu.title}
-                                {...edu}
-                            />
-                        ))}
+                    <div className="space-y-4">
+                        {/* Experience */}
+                        <div className="mb-24 lg:mb-32">
+                            <SectionHeading className="text-5xl mb-12">Where I Worked</SectionHeading>
+                            {experiences.map((exp) => (
+                                <TimelineItem
+                                    key={exp.title}
+                                    {...exp}
+                                />
+                            ))}
+                        </div>
+
+                        {/* Education */}
+                        <div className="mb-24 lg:mb-32">
+                            <SectionHeading className="text-5xl mb-12">Where I Studied</SectionHeading>
+                            {education.map((edu) => (
+                                <TimelineItem
+                                    key={edu.title}
+                                    {...edu}
+                                />
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

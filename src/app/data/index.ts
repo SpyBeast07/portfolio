@@ -48,15 +48,16 @@ export const resume = {
 };
 
 // About Section
-    // A. One-liner identity (calm, confident)
-    // B. What you work on right now
-    // C. How you think & build
-    // D. Curiosity & learning style
-    // E. Outside-of-code personality (short)
-    // F. Your AI philosophy line (keep this!)
+// A. One-liner identity (calm, confident)
+// B. What you work on right now
+// C. How you think & build
+// D. Curiosity & learning style
+// E. Outside-of-code personality (short)
+// F. Your AI philosophy line (keep this!)
 
 export const about = {
     headline: "Nice to meet you. I'm Kushagra.",
+    photo: "/logo.png",
     short: [
         "I'm a Developer & AI Enthusiast who enjoys combining technology with everything around me. I'm interested in how modern tools can solve today's problems — often inspired by patterns from earlier technological transitions.",
         "I currently work as a Software Developer at Eurobliz, focusing on full-stack development and AI integrations. I care about clean, maintainable code and building systems that last.",
