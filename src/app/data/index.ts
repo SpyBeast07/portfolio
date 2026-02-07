@@ -8,8 +8,7 @@ export const navItems = [
 
 export const sideNavItems = [
     { name: "Home", href: "#" },
-    { name: "About", href: "#about" },
-    { name: "Work", href: "#work" },
+    { name: "Now", href: "#now" },
     { name: "Blogs", href: "#blogs" },
 ];
 
@@ -47,6 +46,54 @@ export const resume = {
     filename: "Kushagra_Gupta_Resume.pdf",
 };
 
+
+export const now = {
+    lastUpdated: "February 2026",
+    sections: [
+        {
+            title: "Work & Projects",
+            items: [
+                {
+                    text: "Currently working as a Software Developer at Eurobliz, contributing to production systems and adopting modern tech stacks.",
+                },
+                {
+                    text: "Built Portfolio V2 — migrated from Next.js to React + Vite + TanStack Router for greater control, stability, and long-term flexibility.\nTracking industry trends via State of JS 2025:",
+                    links: [
+                        { label: "State of JS 2025: Front-end Frameworks", url: "https://2025.stateofjs.com/en-US/libraries/front-end-frameworks/#front_end_frameworks_ratios" },
+                        { label: "State of JS 2025: Meta Frameworks", url: "https://2025.stateofjs.com/en-US/libraries/meta-frameworks/#meta_frameworks_others" },
+                    ]
+                }
+            ]
+        },
+        {
+            title: "Learning & Philosophy",
+            items: [
+                {
+                    text: "Exploring AI Engineering — focusing on using AI not just to code faster, but to engineer systems more effectively."
+                },
+                {
+                    text: "I build like a one-person team by leveraging AI as a productivity multiplier. AI doesn't replace learning for me — it reduces manual overhead, just as calculators enhanced mathematics rather than ending it. I still focus on fundamentals, problem-solving, and understanding systems deeply."
+                }
+            ]
+        },
+        {
+            title: "Hobbies & Interests",
+            items: [
+                {
+                    text: "Design & visual thinking — improving UX, aesthetics, and structure."
+                },
+                {
+                    text: "Learning Spanish (currently on Duolingo)."
+                },
+                {
+                    text: "Experimenting with video editing using DaVinci Resolve."
+                }
+            ]
+        }
+    ]
+};
+
+
 // About Section
 // A. One-liner identity (calm, confident)
 // B. What you work on right now
@@ -58,17 +105,9 @@ export const resume = {
 export const about = {
     headline: "Nice to meet you. I'm Kushagra.",
     photo: "/logo.png",
-    short: [
-        "I'm a Developer & AI Enthusiast who enjoys combining technology with everything around me. I'm interested in how modern tools can solve today's problems — often inspired by patterns from earlier technological transitions.",
-        "I currently work as a Software Developer at Eurobliz, focusing on full-stack development and AI integrations. I care about clean, maintainable code and building systems that last.",
-        "I like structure, clarity, and organized systems. I'm naturally curious, constantly Googling new things, while also trying not to let AI make me lazy about learning.",
-        "Outside of code, I enjoy design and art in all forms, exploring different cultures, traveling, and learning new things — recently even experimenting with Spanish. I value experiences, because they're what really shape you.",
-        "I build like a one-person team by leveraging AI as a productivity multiplier. AI doesn't replace learning for me — it reduces manual overhead, while fundamentals still matter."
-    ],
     long: [
         "I'm a Developer & AI Enthusiast who enjoys combining technology with everything around it. I'm curious about how modern problems can be solved using today's tools — sometimes inspired by ideas and transitions that happened long before our time, when new technologies reshaped the world in similar ways.",
         "Currently, I work as a Software Developer at Eurobliz, where I focus on full-stack development and integrating AI into production systems. I care deeply about writing clean, readable, and maintainable code — the kind that still makes sense when someone else reads it months later. I believe good systems should last, not just work.",
-        "I like things organized. Clean structure, clear abstractions, predictable behavior. Think of it as the Tetris effect (don't worry, not actual OCD).",
         "I'm naturally curious. I like knowing how things work, and I'm usually the person Googling everything new I hear. That said, I'm also aware of how easy it is to become lazy in the age of AI — doing things faster without fully understanding them, or skipping the “why” altogether. I try to stay conscious of that and keep learning intentionally, even when shortcuts are tempting.",
         "Outside of code, I'm drawn to design and art in any form — paintings, sculptures, photography, anything that reflects structure or expression. I enjoy learning from different cultures and experiences; recently, that even meant trying to learn Spanish, just out of curiosity. I also love traveling, exploring new ideas, and collecting experiences — because in the end, experiences are what shape who you become.",
         // Star line!! Do not remove it.

@@ -80,7 +80,7 @@ export default function AboutContent() {
                     </div>
 
                     {/* Social Icons */}
-                    <div className="flex gap-6 mb-12">
+                    <div className="flex gap-6 mt-10 mb-10">
                         {socialLinks.map(({ href, label }) => (
                             <a
                                 key={label}

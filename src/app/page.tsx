@@ -1,11 +1,11 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useState, useEffect } from "react";
 import VerticalEmail from "@/app/components/layout/VerticalEmail";
 import Navbar from "@/app/components/layout/Navbar";
-import AboutSection from "@/app/home/AboutSection";
-import WorkSection from "@/app/home/WorkSection";
 import BlogsSection from "@/app/home/BlogsSection";
+import NowSection from "@/app/components/home/NowSection";
 import Footer from "@/app/components/layout/Footer";
 import SocialPill from "@/app/components/shared/SocialPill";
 import HeroTitle from "@/app/home/HeroTitle";
@@ -30,6 +30,18 @@ export default function Home() {
   const nameX = useTransform(t, [0, 1], ["-50%", "0%"]);
   const nameLeft = useTransform(t, (v) => `calc(50% * ${1 - v} + 8rem * ${v})`);
   const nameTop = useTransform(t, [0, 1], ["22vh", "20vh"]);
+
+  // Content Animation (Fast scroll then normal)
+  const contentY = useTransform(scrollY, [0, 120], ["0vh", "-45vh"]);
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   return (
     <div className="relative w-full min-h-screen bg-background text-foreground transition-colors duration-300 selection:bg-yellow-500/30">
@@ -106,12 +118,11 @@ export default function Home() {
       {/* --- Floating Elements --- */}
 
       {/* Navbar */}
-      {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-      <motion.div style={{ opacity: heroOpacity, pointerEvents: pointerEventsHero as any }} className="hidden md:block fixed top-0 left-0 w-full h-full z-30 pointer-events-none">
+      <div className="hidden md:block fixed top-0 left-0 w-full h-full z-30 pointer-events-none">
         <div className="absolute top-8 left-1/2 -translate-x-1/2 pointer-events-auto">
           <Navbar mode="floating" />
         </div>
-      </motion.div>
+      </div>
 
       <div className="block md:hidden fixed top-0 left-0 w-full h-full z-30 pointer-events-none">
         <div className="absolute top-8 left-1/2 -translate-x-1/2 pointer-events-auto">
@@ -141,7 +152,7 @@ export default function Home() {
       </motion.div>
 
       {/* --- Main Content Area --- */}
-      <div className="relative w-full z-20">
+      <motion.div style={{ y: isMobile ? contentY : 0 }} className="relative w-full z-20">
         <div style={{ height: "100vh" }} />
         <main className="md:w-[60%] md:ml-[40%] px-6 md:px-16 pt-24 pb-24">
 
@@ -155,12 +166,11 @@ export default function Home() {
             </h2>
           </section>
 
-          <AboutSection />
-          <WorkSection />
+          <NowSection />
           <BlogsSection />
           <Footer />
         </main>
-      </div>
-    </div >
+      </motion.div>
+    </div>
   );
 }
