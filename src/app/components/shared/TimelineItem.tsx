@@ -4,6 +4,8 @@ import { BriefcaseIcon, MapPinIcon } from "@/app/components/ui/Icons";
 import { Education } from "@/app/data";
 import { useState } from "react";
 
+import Image from "next/image";
+
 interface TimelineItemProps {
     title: string;
     subtitle: string;
@@ -26,8 +28,9 @@ const ExpandableStory = ({ description, story, className }: { description: strin
             <div
                 className={className}
                 style={{ color: "color-mix(in oklab, var(--foreground) 70%, transparent)" }}
-                dangerouslySetInnerHTML={{ __html: description }}
-            />
+            >
+                {description}
+            </div>
             {story && (
                 <>
                     <button
@@ -41,8 +44,9 @@ const ExpandableStory = ({ description, story, className }: { description: strin
                         <div
                             className={className}
                             style={{ color: "color-mix(in oklab, var(--foreground) 70%, transparent)" }}
-                            dangerouslySetInnerHTML={{ __html: story }}
-                        />
+                        >
+                            {story}
+                        </div>
                     )}
                 </>
             )}
@@ -64,14 +68,18 @@ export const TimelineItem = ({ title, subtitle, date, description, tags, locatio
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 gap-4">
             <div className="flex items-start gap-4">
                 {logo && (
-                    <img
-                        src={logo}
-                        alt={`${subtitle} logo`}
-                        className="w-12 h-12 rounded-full object-cover border"
-                        style={{
-                            borderColor: "color-mix(in oklab, var(--foreground) 10%, transparent)"
-                        }}
-                    />
+                    <div className="relative w-12 h-12 flex-shrink-0">
+                        <Image
+                            src={logo}
+                            alt={`${subtitle} logo`}
+                            width={48}
+                            height={48}
+                            className="rounded-full object-cover border"
+                            style={{
+                                borderColor: "color-mix(in oklab, var(--foreground) 10%, transparent)"
+                            }}
+                        />
+                    </div>
                 )}
                 <div className="flex-1">
                     <h3
@@ -147,14 +155,18 @@ export const TimelineItem = ({ title, subtitle, date, description, tags, locatio
                         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-1 gap-4">
                             <div className="flex items-start gap-3">
                                 {item.logo && (
-                                    <img
-                                        src={item.logo}
-                                        alt={`${item.subtitle} logo`}
-                                        className="w-10 h-10 rounded-full object-cover border"
-                                        style={{
-                                            borderColor: "color-mix(in oklab, var(--foreground) 10%, transparent)"
-                                        }}
-                                    />
+                                    <div className="relative w-10 h-10 flex-shrink-0">
+                                        <Image
+                                            src={item.logo}
+                                            alt={`${item.subtitle} logo`}
+                                            width={40}
+                                            height={40}
+                                            className="rounded-full object-cover border"
+                                            style={{
+                                                borderColor: "color-mix(in oklab, var(--foreground) 10%, transparent)"
+                                            }}
+                                        />
+                                    </div>
                                 )}
                                 <div>
                                     <h4 className="text-md font-bold font-playfair" style={{ color: "var(--foreground)" }}>

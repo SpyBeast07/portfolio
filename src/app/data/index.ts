@@ -12,12 +12,9 @@ export const sideNavItems = [
     { name: "Blogs", href: "#blogs" },
 ];
 
-export interface SocialLink {
-    label: string;
-    href: string;
-}
 
-export const socialLinks: SocialLink[] = [
+
+export const socialLinks = [
     {
         label: "GitHub",
         href: "https://github.com/SpyBeast07",
@@ -115,7 +112,7 @@ export const about = {
     ],
 };
 
-export interface Experience {
+interface Experience {
     title: string;
     subtitle: string;
     date: string;
@@ -210,7 +207,7 @@ export const skills = {
     toolsAndProductivity: ["Git", "GitHub", "Postman", "Cypress", "Mocha", "Streamlit", "Figma", "LaTeX", "Microsoft Excel", "Notion"],
 };
 
-export interface Project {
+interface Project {
     title: string;
     description: string;
     tags: string[];
@@ -310,7 +307,7 @@ export const pageHeadings = {
     },
 };
 
-export interface Blog {
+interface Blog {
     title: string;
     excerpt: string;
     date: string;

@@ -55,6 +55,13 @@ export default function ThemeBulb() {
                 {/* Bulb */}
                 <div
                     onClick={toggleTheme}
+                    onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                            toggleTheme();
+                        }
+                    }}
+                    role="button"
+                    tabIndex={0}
                     className={`
                 w-8 h-12 rounded-b-[50%] rounded-t-[40%] -mt-1 border border-black/20 dark:border-white/10 shadow-lg transition-all duration-300 cursor-pointer pointer-events-auto
                 ${isDark ? 'bg-neutral-800 shadow-none' : 'bg-yellow-300 shadow-[0_0_30px_rgba(253,224,71,0.6)] animate-pulse'}

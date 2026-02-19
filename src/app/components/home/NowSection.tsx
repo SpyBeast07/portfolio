@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import SectionHeading from "@/app/components/shared/SectionHeading";
 import { now } from "@/app/data";
 
@@ -28,8 +28,8 @@ export default function NowSection() {
 
             <div className="space-y-12">
                 {now.sections.map((section: Section, index: number) => (
-                    <motion.div
-                        key={index}
+                    <m.div
+                        key={section.title}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
@@ -40,13 +40,13 @@ export default function NowSection() {
                         </h3>
                         <ul className="space-y-4">
                             {section.items.map((item: Item, i: number) => (
-                                <li key={i} className="text-lg text-neutral-400 font-outfit leading-relaxed whitespace-pre-line">
+                                <li key={item.text.substring(0, 20) + i} className="text-lg text-neutral-400 font-outfit leading-relaxed whitespace-pre-line">
                                     <span className="block mb-1">{item.text}</span>
                                     {item.links && (
                                         <div className="flex flex-col gap-1 mt-1 ml-4">
-                                            {item.links.map((link: Link, j: number) => (
+                                            {item.links.map((link: Link) => (
                                                 <a
-                                                    key={j}
+                                                    key={link.label}
                                                     href={link.url}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
@@ -60,7 +60,7 @@ export default function NowSection() {
                                 </li>
                             ))}
                         </ul>
-                    </motion.div>
+                    </m.div>
                 ))}
             </div>
         </section>

@@ -8,6 +8,7 @@ import SectionHeading from "@/app/components/shared/SectionHeading";
 import { EmailIcon, FileTextIcon, GithubIcon, LinkedinIcon } from "@/app/components/ui/Icons";
 
 import Image from "next/image";
+import Link from "next/link";
 
 export default function AboutContent() {
     const getIcon = (label: string) => {
@@ -54,6 +55,7 @@ export default function AboutContent() {
                                             src={about.photo}
                                             alt="Profile Photo"
                                             fill
+                                            sizes="(max-width: 768px) 192px, 256px"
                                             className="object-cover rounded-2xl shadow-sm transition-all duration-500"
                                             style={{
                                                 border: "1px solid color-mix(in oklab, var(--foreground) 10%, transparent)"
@@ -72,7 +74,7 @@ export default function AboutContent() {
 
                             {/* Text Content */}
                             {about.long.map((paragraph, index) => (
-                                <p key={index} className={index === about.long.length - 1 ? "font-medium text-foreground/80" : ""}>
+                                <p key={paragraph.substring(0, 10) + index} className={index === about.long.length - 1 ? "font-medium text-foreground/80" : ""}>
                                     {paragraph}
                                 </p>
                             ))}
@@ -109,7 +111,7 @@ export default function AboutContent() {
 
                     {/* Resume Button */}
                     <div className="mb-24 lg:mb-32">
-                        <a
+                        <Link
                             href="/resume"
                             className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-sm transition-transform"
                             style={{
@@ -127,7 +129,7 @@ export default function AboutContent() {
                         >
                             <FileTextIcon width={16} height={16} />
                             View Resume
-                        </a>
+                        </Link>
                     </div>
 
                     <div className="space-y-4">

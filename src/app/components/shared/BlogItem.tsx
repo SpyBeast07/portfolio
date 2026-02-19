@@ -37,6 +37,7 @@ export const BlogItem = ({ title, excerpt, date, slug, readTime, image, showImag
                     src={image}
                     alt={title}
                     fill
+                    sizes="(max-width: 768px) 100vw, 192px"
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
             </div>

@@ -6,27 +6,11 @@ import { useEffect, useState } from "react";
 
 export default function GithubStats() {
     const { theme } = useTheme();
-    const [mounted, setMounted] = useState(false);
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-    if (!mounted) {
-        return (
-            <div
-                className="mt-12 rounded-lg p-6 overflow-hidden min-h-[180px] animate-pulse"
-                style={{
-                    backgroundColor: "color-mix(in oklab, var(--background) 85%, transparent)",
-                    border: "1px solid color-mix(in oklab, var(--foreground) 30%, transparent)",
-                }}
-            />
-        );
-    }
 
     return (
         <div
             className="mt-12 rounded-lg p-6 overflow-hidden"
+            suppressHydrationWarning
             style={{
                 backgroundColor:
                     "color-mix(in oklab, var(--background) 85%, transparent)",

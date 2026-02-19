@@ -52,7 +52,7 @@ export default function Navbar({ mode = "floating" }: { mode?: "floating" | "sid
         const handleScroll = () => {
             if (window.scrollY < 100) setActiveSection(""); // Empty string maps to Home in our logic below
         };
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll, { passive: true });
 
         return () => {
             sections.forEach((section) => observer.unobserve(section));
